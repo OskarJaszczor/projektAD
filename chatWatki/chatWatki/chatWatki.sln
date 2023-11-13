@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chatWatki", "chatWatki\chatWatki.csproj", "{55DC7D68-0574-4921-878C-C18AA214DE9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "klient", "klient\klient.csproj", "{2A78BE91-5039-4A6B-9D28-548ACE800541}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55DC7D68-0574-4921-878C-C18AA214DE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55DC7D68-0574-4921-878C-C18AA214DE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55DC7D68-0574-4921-878C-C18AA214DE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55DC7D68-0574-4921-878C-C18AA214DE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A78BE91-5039-4A6B-9D28-548ACE800541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A78BE91-5039-4A6B-9D28-548ACE800541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A78BE91-5039-4A6B-9D28-548ACE800541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A78BE91-5039-4A6B-9D28-548ACE800541}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {894840B0-D927-4467-976A-389ABF27BF16}
+	EndGlobalSection
+EndGlobal
