@@ -33,7 +33,9 @@ namespace klient
             TicTacToeMove,
             TicTacToeWin,
             TicTacToeDraw,
-            TicTacToeReset
+            TicTacToeReset,
+            IpAdress,
+            Nick
         }
         public class boxClicked
         {
@@ -76,7 +78,10 @@ namespace klient
 
             Thread t = new Thread(() =>
             {
-            StreamReader streamReader = new StreamReader(client.GetStream());
+                StreamReader streamReader = new StreamReader(client.GetStream());
+                StreamWriter writer = new(client.GetStream());
+                writer.WriteLine(GameMessageType.Nick + "\0" + log);
+                writer.Flush();
             while (true)
             {
                 string raw = streamReader.ReadLine();

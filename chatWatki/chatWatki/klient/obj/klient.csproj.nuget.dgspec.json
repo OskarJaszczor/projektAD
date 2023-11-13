@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\oskarjaszczor\\chatWatki\\chatWatki\\klient\\klient.csproj": {}
+    "D:\\Oskar Jaszczor\\projektAD\\chatWatki\\chatWatki\\klient\\klient.csproj": {}
   },
   "projects": {
-    "D:\\oskarjaszczor\\chatWatki\\chatWatki\\klient\\klient.csproj": {
+    "D:\\Oskar Jaszczor\\projektAD\\chatWatki\\chatWatki\\klient\\klient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\oskarjaszczor\\chatWatki\\chatWatki\\klient\\klient.csproj",
+        "projectUniqueName": "D:\\Oskar Jaszczor\\projektAD\\chatWatki\\chatWatki\\klient\\klient.csproj",
         "projectName": "klient",
-        "projectPath": "D:\\oskarjaszczor\\chatWatki\\chatWatki\\klient\\klient.csproj",
+        "projectPath": "D:\\Oskar Jaszczor\\projektAD\\chatWatki\\chatWatki\\klient\\klient.csproj",
         "packagesPath": "C:\\Users\\jaszczorosk\\.nuget\\packages\\",
-        "outputPath": "D:\\oskarjaszczor\\chatWatki\\chatWatki\\klient\\obj\\",
+        "outputPath": "D:\\Oskar Jaszczor\\projektAD\\chatWatki\\chatWatki\\klient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

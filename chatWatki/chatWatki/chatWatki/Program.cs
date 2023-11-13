@@ -16,7 +16,9 @@ namespace chatWatki
         TicTacToeMove,
         TicTacToeWin,
         TicTacToeDraw,
-        TicTacToeReset
+        TicTacToeReset,
+        IpAdress,
+        Nick
     }
 
     
@@ -24,6 +26,7 @@ namespace chatWatki
     {
         private static ObservableCollection<Message> messages = new ObservableCollection<Message>();
         private static ObservableCollection<TicTacToe> tictactoe = new ObservableCollection<TicTacToe>();
+        private static ObservableCollection<Players> players = new ObservableCollection<Players>();
         private static List<TcpClient> clients = new();
         public static bool game_over = false;
         private static bool player1Turn = true;
@@ -69,6 +72,7 @@ namespace chatWatki
                 });
                 t.Start();
             };
+            
             bool gameFlag = true;
             while (true)
             {
@@ -79,9 +83,15 @@ namespace chatWatki
                 Thread t = new Thread(() =>
                 {
                     StreamReader reader = new StreamReader(client.GetStream());
+                    string data = reader.ReadLine();
+                    string[] splitted1 = data.Split('\0');
+                    if(splitted1[0] == "Nick")
+                    {
+                        string nickname = splitted1[1];
+                        players.Add()
+                    }
+                    Console.WriteLine($"Nowe połączenie od {((IPEndPoint)client.Client.RemoteEndPoint).Address}"); // tak sie adres IP klienta pobiera 
 
-                    Console.WriteLine("Client connected!");
-                    
                     while (true)
                     {
                         string raw = reader.ReadLine();
