@@ -8,12 +8,12 @@ namespace chatWatki
 {
     class Players
     {
-        string ip;
-        string nickname;
+        public string ip { set; get; }
+        public string nickname { set; get; }
 
-        public Players(string ip, string n)
+        public Players(string ipe, string n)
         {
-            ip = ip;
+            ip = ipe;
             nickname = n;
         }
     }

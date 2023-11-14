@@ -17,11 +17,11 @@ namespace chatWatki
         TicTacToeWin,
         TicTacToeDraw,
         TicTacToeReset,
-        IpAdress,
-        Nick
+        IpAdressNick,
+        
     }
 
-    
+
     class Program
     {
         private static ObservableCollection<Message> messages = new ObservableCollection<Message>();
@@ -49,7 +49,7 @@ namespace chatWatki
                     {
                         StreamWriter writer = new StreamWriter(client.GetStream());
                         foreach (Message msg in newMessages)
-                        writer.WriteLine(GameMessageType.Chat + "\0" + msg.User + "\0" + msg.Msg);
+                            writer.WriteLine(GameMessageType.Chat + "\0" + msg.User + "\0" + msg.Msg);
                         writer.Flush();
                     }
                 });
@@ -66,31 +66,50 @@ namespace chatWatki
                     {
                         StreamWriter writer = new StreamWriter(client.GetStream());
                         foreach (TicTacToe ttt in newMessages)
-                        writer.WriteLine(GameMessageType.TicTacToeMove + "\0" + ttt.Clicked + "\0" + ttt.Character);
+                            writer.WriteLine(GameMessageType.TicTacToeMove + "\0" + ttt.Clicked + "\0" + ttt.Character);
                         writer.Flush();
                     }
                 });
                 t.Start();
             };
-            
+
+            players.CollectionChanged += (sender, e) =>
+            {
+                Thread t = new Thread(() =>
+                {
+                    foreach(Players player in players)
+                    {
+                        Console.WriteLine(player.ip + ":" + player.nickname + ":" + player.ip);
+                    }
+                });
+                t.Start();
+            };
+
+            //watek do monitorowania ilosci graczy na serverze
+
+
+
             bool gameFlag = true;
             while (true)
             {
                 int x = messages.Count;
                 TcpClient client = listener.AcceptTcpClient();
                 clients.Add(client);
-                
+
                 Thread t = new Thread(() =>
                 {
                     StreamReader reader = new StreamReader(client.GetStream());
                     string data = reader.ReadLine();
                     string[] splitted1 = data.Split('\0');
-                    if(splitted1[0] == "Nick")
+                    IPAddress ip = ((IPEndPoint)client.Client.RemoteEndPoint).Address;
+                    string nickname = null;
+                    if (splitted1[0] == "Nick")
                     {
-                        string nickname = splitted1[1];
-                        players.Add()
+                        nickname = splitted1[1];
+                        
                     }
-                    Console.WriteLine($"Nowe połączenie od {((IPEndPoint)client.Client.RemoteEndPoint).Address}"); // tak sie adres IP klienta pobiera 
+                    players.Add(new Players(ip.ToString(), nickname));
+                    Console.WriteLine($"Nowe połączenie od {ip.ToString()}"); // tak sie adres IP klienta pobiera 
 
                     while (true)
                     {
@@ -114,13 +133,13 @@ namespace chatWatki
                                     Console.WriteLine($"[{move}] {gameFlag}");
                                     if (IsGameWon(gameFlag) == true)
                                     {
-                                        
+
                                         Console.WriteLine("Win" + gameFlag);
                                         tictactoe.Clear();
                                         sendWin(gameFlag);
 
                                     }
-                                    if(IsGameTie(gameFlag) == true) 
+                                    if (IsGameTie(gameFlag) == true)
                                     {
                                         Console.WriteLine("Draw" + gameFlag);
                                         tictactoe.Clear();
@@ -199,13 +218,13 @@ namespace chatWatki
         private static bool IsGameTie(bool flag)
         {
             int counter = 0;
-            foreach(var e in tictactoe)
+            foreach (var e in tictactoe)
             {
                 counter++;
             }
-            if(counter == 9)
+            if (counter == 9)
             {
-                if(IsGameWon(flag) == false)
+                if (IsGameWon(flag) == false)
                 {
                     game_over = true;
                     return true;
@@ -216,7 +235,7 @@ namespace chatWatki
 
         private static void sendWin(bool flag)
         {
-            foreach(TcpClient client in clients)
+            foreach (TcpClient client in clients)
             {
                 StreamWriter writer = new(client.GetStream());
                 writer.WriteLine(GameMessageType.TicTacToeWin + "\0" + flag);
@@ -241,5 +260,7 @@ namespace chatWatki
                 writer.Flush();
             }
         }
+
+
     }
 }

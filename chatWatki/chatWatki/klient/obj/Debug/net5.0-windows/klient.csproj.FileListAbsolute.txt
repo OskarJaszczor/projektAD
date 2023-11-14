@@ -1,48 +1,24 @@
-D:\oskarjaszczor\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.exe
-D:\oskarjaszczor\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.deps.json
-D:\oskarjaszczor\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.json
-D:\oskarjaszczor\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.dev.json
-D:\oskarjaszczor\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.dll
-D:\oskarjaszczor\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\ref\klient.dll
-D:\oskarjaszczor\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.pdb
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.csproj.AssemblyReference.cache
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\MainWindow.g.cs
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\nickWin.g.cs
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\App.g.cs
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient_MarkupCompile.cache
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient_MarkupCompile.lref
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\MainWindow.baml
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\nickWin.baml
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.g.resources
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.GeneratedMSBuildEditorConfig.editorconfig
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.AssemblyInfoInputs.cache
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.AssemblyInfo.cs
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.csproj.CoreCompileInputs.cache
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.dll
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\ref\klient.dll
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.pdb
-D:\oskarjaszczor\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.genruntimeconfig.cache
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.exe
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.deps.json
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.json
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.dev.json
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.dll
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\ref\klient.dll
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.pdb
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.csproj.AssemblyReference.cache
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\MainWindow.g.cs
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\nickWin.g.cs
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\App.g.cs
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient_MarkupCompile.cache
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient_MarkupCompile.lref
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\MainWindow.baml
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\nickWin.baml
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.g.resources
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.GeneratedMSBuildEditorConfig.editorconfig
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.AssemblyInfoInputs.cache
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.AssemblyInfo.cs
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.csproj.CoreCompileInputs.cache
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.dll
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\ref\klient.dll
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.pdb
-D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.genruntimeconfig.cache
+E:\C#\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.exe
+E:\C#\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.deps.json
+E:\C#\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.json
+E:\C#\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.dev.json
+E:\C#\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.dll
+E:\C#\projektAD\chatWatki\chatWatki\klient\bin\Debug\net5.0-windows\klient.pdb
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.csproj.AssemblyReference.cache
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\MainWindow.g.cs
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\nickWin.g.cs
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\App.g.cs
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient_MarkupCompile.cache
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient_MarkupCompile.lref
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\MainWindow.baml
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\nickWin.baml
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.g.resources
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.AssemblyInfoInputs.cache
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.AssemblyInfo.cs
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.csproj.CoreCompileInputs.cache
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.dll
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\refint\klient.dll
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.pdb
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.genruntimeconfig.cache
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\ref\klient.dll

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oEmzdcVlfgp6VyCRnENWSyqNjz4LlP5bSjgykKD6DksR0pb8nUfGCl4OjIuY3V+octlT8zpqC4Nqco14eWrtMg==",
+  "dgSpecHash": "jB76dwILMrEZPy4IXLIoO3iv0j9j2k5XvNO2Jr/3X5SAwg8LwzowaUSjg/E+aDCP3nvfUjzCrW+ayeTGkv81cQ==",
   "success": true,
-  "projectFilePath": "D:\\Oskar Jaszczor\\projektAD\\chatWatki\\chatWatki\\klient\\klient.csproj",
+  "projectFilePath": "E:\\C#\\projektAD\\chatWatki\\chatWatki\\klient\\klient.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

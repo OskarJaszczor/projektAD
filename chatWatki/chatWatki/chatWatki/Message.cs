@@ -1,4 +1,5 @@
-﻿namespace chatWatki
+﻿
+namespace chatWatki
 {
     class Message
     {
