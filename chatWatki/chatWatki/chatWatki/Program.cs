@@ -29,8 +29,7 @@ namespace chatWatki
         private static ObservableCollection<Players> players = new ObservableCollection<Players>();
         private static List<TcpClient> clients = new();
         public static bool game_over = false;
-        private static bool player1Turn = true;
-        private static bool player2Turn = false;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Server start!");
@@ -79,8 +78,17 @@ namespace chatWatki
                 {
                     foreach(Players player in players)
                     {
-                        Console.WriteLine(player.ip + ":" + player.nickname + ":" + player.ip);
+                        Console.WriteLine(player.nickname + ":" + player.ip);
                     }
+                    foreach(TcpClient client in clients)
+                    {
+                        StreamWriter writer = new(client.GetStream());
+                        foreach (Players player in players)
+                        {
+                            writer.WriteLine(GameMessageType.IpAdressNick + "\0" + player.nickname + "\0" + player.ip);
+                        }
+                    }
+
                 });
                 t.Start();
             };
@@ -95,7 +103,7 @@ namespace chatWatki
                 int x = messages.Count;
                 TcpClient client = listener.AcceptTcpClient();
                 clients.Add(client);
-
+                
                 Thread t = new Thread(() =>
                 {
                     StreamReader reader = new StreamReader(client.GetStream());
@@ -109,10 +117,11 @@ namespace chatWatki
                         
                     }
                     players.Add(new Players(ip.ToString(), nickname));
-                    Console.WriteLine($"Nowe połączenie od {ip.ToString()}"); // tak sie adres IP klienta pobiera 
+                   //Console.WriteLine($"Nowe połączenie od {ip.ToString()}"); // tak sie adres IP klienta pobiera 
 
                     while (true)
                     {
+                        
                         string raw = reader.ReadLine();
                         string[] splitted = raw.Split('\0');
                         switch (splitted[0])
