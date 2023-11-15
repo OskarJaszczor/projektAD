@@ -18,7 +18,7 @@ namespace chatWatki
         TicTacToeDraw,
         TicTacToeReset,
         IpAdressNick,
-        
+        IsAlive
     }
 
 
@@ -86,6 +86,7 @@ namespace chatWatki
                         foreach (Players player in players)
                         {
                             writer.WriteLine(GameMessageType.IpAdressNick + "\0" + player.nickname + "\0" + player.ip);
+                            
                         }
                     }
 
@@ -95,7 +96,16 @@ namespace chatWatki
 
             //watek do monitorowania ilosci graczy na serverze
 
+            Thread ActivePlayers = new(() =>
+            {
+                foreach(Players player in players)
+                {
+                    //Pomysly: 1. klienci przesylaja wiadomosci (jakis byte). Sprawdzam czy kazdy to robi, jesli jakis nie to znaczy ze sie rozlaczyl
+                    // 2. foreachem wysylam byte doi klientow co sekunde, kazdy z nich go odczytuje i odsyla to samo
+                }
+            });
 
+            ActivePlayers.Start();
 
             bool gameFlag = true;
             while (true)
@@ -142,7 +152,7 @@ namespace chatWatki
                                     Console.WriteLine($"[{move}] {gameFlag}");
                                     if (IsGameWon(gameFlag) == true)
                                     {
-
+                                        
                                         Console.WriteLine("Win" + gameFlag);
                                         tictactoe.Clear();
                                         sendWin(gameFlag);
