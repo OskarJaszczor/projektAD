@@ -32,6 +32,13 @@ namespace klient
         {
             Login = loginTxt.Text;
             DialogResult = true;
+            Visibility = Visibility.Hidden;
+            Lobby lobby = new Lobby();
+
+            if (lobby.ShowDialog() == true)
+            {
+                lobby.Show();
+            }
         }
     }
 }

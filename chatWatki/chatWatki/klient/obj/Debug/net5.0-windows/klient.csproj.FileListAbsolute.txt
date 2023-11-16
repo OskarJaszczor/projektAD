@@ -46,3 +46,5 @@ D:\OskarJaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\k
 D:\OskarJaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.AssemblyInfo.cs
 D:\OskarJaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.csproj.CoreCompileInputs.cache
 D:\OskarJaszczor\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\klient.genruntimeconfig.cache
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\Lobby.g.cs
+E:\C#\projektAD\chatWatki\chatWatki\klient\obj\Debug\net5.0-windows\Lobby.baml

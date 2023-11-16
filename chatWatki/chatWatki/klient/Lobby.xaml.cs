@@ -19,9 +19,12 @@ namespace klient
     /// </summary>
     public partial class Lobby : Window
     {
+        private string? log;
         public Lobby()
         {
             InitializeComponent();
+            nickWin win = new nickWin();
+            log = win.Login;
 
         }
     }
