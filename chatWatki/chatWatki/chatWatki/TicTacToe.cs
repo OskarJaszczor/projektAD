@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace chatWatki
 {
+
     class TicTacToe
     {
         public int Clicked { set; get; }

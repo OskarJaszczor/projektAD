@@ -22,163 +22,16 @@ namespace chatWatki
     }
 
 
-    class Program
+    class Game
     {
-        private static ObservableCollection<Message> messages = new ObservableCollection<Message>();
-        private static ObservableCollection<TicTacToe> tictactoe = new ObservableCollection<TicTacToe>();
-        private static ObservableCollection<Players> players = new ObservableCollection<Players>();
-        private static List<TcpClient> clients = new();
-        public static bool game_over = false;
+        public ObservableCollection<Message> messages = new ObservableCollection<Message>();
+        public ObservableCollection<TicTacToe> tictactoe = new ObservableCollection<TicTacToe>();
+        public ObservableCollection<Players> players = new ObservableCollection<Players>();
+        public List<TcpClient> clients = new();
+        public bool game_over = false;
+        public bool gameFlag = true;
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Server start!");
-
-            TcpListener listener = new TcpListener(IPAddress.Any, 9999);
-            listener.Start();
-
-            messages.CollectionChanged += (sender, e) =>
-            {
-                if (e.Action != NotifyCollectionChangedAction.Add) return;
-                var newMessages = e.NewItems;
-
-                Thread t = new(() =>
-                {
-                    foreach (TcpClient client in clients)
-                    {
-                        StreamWriter writer = new StreamWriter(client.GetStream());
-                        foreach (Message msg in newMessages)
-                            writer.WriteLine(GameMessageType.Chat + "\0" + msg.User + "\0" + msg.Msg);
-                        writer.Flush();
-                    }
-                });
-                t.Start();
-            };
-            tictactoe.CollectionChanged += (sender, e) =>
-            {
-                if (e.Action != NotifyCollectionChangedAction.Add) return;
-                var newMessages = e.NewItems;
-
-                Thread t = new(() =>
-                {
-                    foreach (TcpClient client in clients)
-                    {
-                        StreamWriter writer = new StreamWriter(client.GetStream());
-                        foreach (TicTacToe ttt in newMessages)
-                            writer.WriteLine(GameMessageType.TicTacToeMove + "\0" + ttt.Clicked + "\0" + ttt.Character);
-                        writer.Flush();
-                    }
-                });
-                t.Start();
-            };
-
-            players.CollectionChanged += (sender, e) =>
-            {
-                Thread t = new Thread(() =>
-                {
-                    foreach(Players player in players)
-                    {
-                        Console.WriteLine(player.nickname + ":" + player.ip);
-                    }
-                    foreach(TcpClient client in clients)
-                    {
-                        StreamWriter writer = new(client.GetStream());
-                        foreach (Players player in players)
-                        {
-                            writer.WriteLine(GameMessageType.IpAdressNick + "\0" + player.nickname + "\0" + player.ip);
-                            
-                        }
-                    }
-
-                });
-                t.Start();
-            };
-
-            //watek do monitorowania ilosci graczy na serverze
-
-            Thread ActivePlayers = new(() =>
-            {
-                foreach(Players player in players)
-                {
-                    //Pomysly: 1. klienci przesylaja wiadomosci (jakis byte). Sprawdzam czy kazdy to robi, jesli jakis nie to znaczy ze sie rozlaczyl
-                    // 2. foreachem wysylam byte doi klientow co sekunde, kazdy z nich go odczytuje i odsyla to samo
-                }
-            });
-
-            ActivePlayers.Start();
-
-            bool gameFlag = true;
-            while (true)
-            {
-                int x = messages.Count;
-                TcpClient client = listener.AcceptTcpClient();
-                clients.Add(client);
-                
-                Thread t = new Thread(() =>
-                {
-                    StreamReader reader = new StreamReader(client.GetStream());
-                    string data = reader.ReadLine();
-                    string[] splitted1 = data.Split('\0');
-                    IPAddress ip = ((IPEndPoint)client.Client.RemoteEndPoint).Address;
-                    string nickname = null;
-                    if (splitted1[0] == "Nick")
-                    {
-                        nickname = splitted1[1];
-                        
-                    }
-                    players.Add(new Players(ip.ToString(), nickname));
-                   //Console.WriteLine($"Nowe połączenie od {ip.ToString()}"); // tak sie adres IP klienta pobiera 
-
-                    while (true)
-                    {
-                        
-                        string raw = reader.ReadLine();
-                        string[] splitted = raw.Split('\0');
-                        switch (splitted[0])
-                        {
-                            case "Chat":
-                                string user = splitted[1],
-                                msg = splitted[2];
-                                Console.WriteLine($"[{user}] {msg}");
-                                messages.Add(new Message(msg, user));
-                                break;
-                            case "TicTacToeMove":
-                                int move = Int32.Parse(splitted[1]);
-                                //Console.WriteLine(gameFlag);
-
-                                if (IsValidMove(move, gameFlag) == true)
-                                {
-                                    tictactoe.Add(new TicTacToe(move, gameFlag));
-                                    Console.WriteLine($"[{move}] {gameFlag}");
-                                    if (IsGameWon(gameFlag) == true)
-                                    {
-                                        
-                                        Console.WriteLine("Win" + gameFlag);
-                                        tictactoe.Clear();
-                                        sendWin(gameFlag);
-
-                                    }
-                                    if (IsGameTie(gameFlag) == true)
-                                    {
-                                        Console.WriteLine("Draw" + gameFlag);
-                                        tictactoe.Clear();
-                                        sendDraw(gameFlag);
-                                    }
-                                    gameFlag = !gameFlag;
-                                }
-                                break;
-                            case "TicTacToeReset":
-                                resetBoard();
-                                game_over = false;
-                                break;
-                        }
-                    }
-                });
-                t.Start();
-            }
-        }
-
-        private static bool IsValidMove(int move, bool flag)
+        public bool IsValidMove(int move, bool flag)
         {
             if (game_over != true)
             {
@@ -198,7 +51,7 @@ namespace chatWatki
             return false;
         }
 
-        private static bool IsGameWon(bool flag)
+        public bool IsGameWon(bool flag)
         {
             int[] board = new int[9];
             foreach (var ttt in tictactoe)
@@ -234,7 +87,7 @@ namespace chatWatki
             return false;
         }
 
-        private static bool IsGameTie(bool flag)
+        public bool IsGameTie(bool flag)
         {
             int counter = 0;
             foreach (var e in tictactoe)
@@ -252,7 +105,7 @@ namespace chatWatki
             return false;
         }
 
-        private static void sendWin(bool flag)
+        public void sendWin(bool flag)
         {
             foreach (TcpClient client in clients)
             {
@@ -261,7 +114,7 @@ namespace chatWatki
                 writer.Flush();
             }
         }
-        private static void sendDraw(bool flag)
+        public void sendDraw(bool flag)
         {
             foreach (TcpClient client in clients)
             {
@@ -270,7 +123,7 @@ namespace chatWatki
                 writer.Flush();
             }
         }
-        private static void resetBoard()
+        public void resetBoard()
         {
             foreach (TcpClient client in clients)
             {
@@ -281,5 +134,229 @@ namespace chatWatki
         }
 
 
+        private void startMessagesThread()
+        {
+            messages.CollectionChanged += (sender, e) =>
+            {
+                if (e.Action != NotifyCollectionChangedAction.Add) return;
+                var newMessages = e.NewItems;
+
+                Thread t = new(() =>
+                {
+                    foreach (TcpClient client in clients)
+                    {
+                        StreamWriter writer = new StreamWriter(client.GetStream());
+                        foreach (Message msg in newMessages)
+                            writer.WriteLine(GameMessageType.Chat + "\0" + msg.User + "\0" + msg.Msg);
+                        writer.Flush();
+                    }
+                });
+                t.Start();
+            };
+        }
+        private void startTicTacToeThread()
+        {
+            tictactoe.CollectionChanged += (sender, e) =>
+            {
+                if (e.Action != NotifyCollectionChangedAction.Add) return;
+                var newMessages = e.NewItems;
+
+                Thread t = new(() =>
+                {
+                    foreach (TcpClient client in clients)
+                    {
+                        StreamWriter writer = new StreamWriter(client.GetStream());
+                        foreach (TicTacToe ttt in newMessages)
+                            writer.WriteLine(GameMessageType.TicTacToeMove + "\0" + ttt.Clicked + "\0" + ttt.Character);
+                        writer.Flush();
+                    }
+                });
+                t.Start();
+            };
+        }
+        private void startPlayersThread()
+        {
+
+            players.CollectionChanged += (sender, e) =>
+            {
+                Thread t = new Thread(() =>
+                {
+                    foreach (Players player in players)
+                    {
+                        Console.WriteLine(player.nickname + ":" + player.ip);
+                    }
+                    foreach (TcpClient client in clients)
+                    {
+                        StreamWriter writer = new(client.GetStream());
+                        foreach (Players player in players)
+                        {
+                            writer.WriteLine(GameMessageType.IpAdressNick + "\0" + player.nickname + "\0" + player.ip);
+
+                        }
+                    }
+
+                });
+                t.Start();
+            };
+
+        }
+        private void startPlayerCountThread()
+        {/*
+
+            //watek do monitorowania ilosci graczy na serverze
+
+            Thread ActivePlayers = new(() =>
+            {
+                foreach (Players player in players)
+                {
+                    //Pomysly: 1. klienci przesylaja wiadomosci (jakis byte). Sprawdzam czy kazdy to robi, jesli jakis nie to znaczy ze sie rozlaczyl
+                    // 2. foreachem wysylam byte doi klientow co sekunde, kazdy z nich go odczytuje i odsyla to samo
+                }
+            });
+
+            ActivePlayers.Start();
+
+            */
+        }
+
+        public void Start()
+        {
+            new Thread(() => {
+                startMessagesThread();
+                startTicTacToeThread();
+                startPlayersThread();
+                startPlayerCountThread();
+            }).Start();
+
+        }
+
+        public void addClient(TcpClient client)
+        {
+            clients.Add(client);
+
+            Thread t = new Thread(() =>
+            {
+                StreamReader reader = new StreamReader(client.GetStream());
+                string data = reader.ReadLine();
+                string[] splitted1 = data.Split('\0');
+                IPAddress ip = ((IPEndPoint)client.Client.RemoteEndPoint).Address;
+                string nickname = null;
+                if (splitted1[0] == "Nick")
+                {
+                    nickname = splitted1[1];
+
+                }
+                players.Add(new Players(ip.ToString(), nickname));
+                //Console.WriteLine($"Nowe połączenie od {ip.ToString()}"); // tak sie adres IP klienta pobiera 
+
+                while (true)
+                {
+
+                    string raw = reader.ReadLine();
+                    string[] splitted = raw.Split('\0');
+                    switch (splitted[0])
+                    {
+                        case "Chat":
+                            string user = splitted[1],
+                            msg = splitted[2];
+                            Console.WriteLine($"[{user}] {msg}");
+                            messages.Add(new Message(msg, user));
+                            break;
+                        case "TicTacToeMove":
+                            int move = Int32.Parse(splitted[1]);
+                            //Console.WriteLine(gameFlag);
+
+                            if (IsValidMove(move, gameFlag) == true)
+                            {
+                                tictactoe.Add(new TicTacToe(move, gameFlag));
+                                Console.WriteLine($"[{move}] {gameFlag}");
+                                if (IsGameWon(gameFlag) == true)
+                                {
+
+                                    Console.WriteLine("Win" + gameFlag);
+                                    tictactoe.Clear();
+                                    sendWin(gameFlag);
+
+                                }
+                                if (IsGameTie(gameFlag) == true)
+                                {
+                                    Console.WriteLine("Draw" + gameFlag);
+                                    tictactoe.Clear();
+                                    sendDraw(gameFlag);
+                                }
+                                gameFlag = !gameFlag;
+                            }
+                            break;
+                        case "TicTacToeReset":
+                            resetBoard();
+                            game_over = false;
+                            break;
+                    }
+                }
+            });
+            t.Start();
+        }
+    }
+
+    class Lobby
+    {
+        public List<TcpClient> waiting_player = new List<TcpClient>();
+
+        public void addClient(TcpClient client)
+        {
+            waiting_player.Add(client);
+        }
+
+        public void Start()
+        {
+            new Thread(() =>
+            {
+                while(true)
+                {
+                    if(waiting_player.Count >=2)
+                    {
+                        //Create Game
+                        Game gra = new Game();
+                        gra.Start();
+
+                        gra.addClient(waiting_player[0]);
+                        gra.addClient(waiting_player[1]);
+                        waiting_player.RemoveAt(0);
+                        waiting_player.RemoveAt(0);
+                    }
+                }
+            }).Start();
+        }
+
+    }
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Server start!");
+
+            TcpListener listener = new TcpListener(IPAddress.Any, 9999);
+            listener.Start();
+
+            Lobby lobby = new Lobby();
+
+            lobby.Start();
+
+            while (true)
+            {
+                lobby.addClient(listener.AcceptTcpClient());
+
+
+            }
+            /*
+             *                 Game gra = new Game();
+                gra.Start();
+
+                gra.addClient(listener.AcceptTcpClient());
+                gra.addClient(listener.AcceptTcpClient());
+        
+            */
+        }
     }
 }
