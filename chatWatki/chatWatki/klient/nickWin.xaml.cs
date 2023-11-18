@@ -31,14 +31,9 @@ namespace klient
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Login = loginTxt.Text;
-            DialogResult = true;
+            DialogResult = true;        
             Visibility = Visibility.Hidden;
-            Lobby lobby = new Lobby();
 
-            if (lobby.ShowDialog() == true)
-            {
-                lobby.Show();
-            }
         }
     }
 }
