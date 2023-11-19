@@ -93,7 +93,7 @@ namespace klient {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/klient;V1.0.0.0;component/lobby.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/klient;component/lobby.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Lobby.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

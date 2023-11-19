@@ -48,7 +48,7 @@ namespace klient
             }
         }
 
-        public TcpClient client { get; set; }
+        public static TcpClient client { get; set; }
         public static string? log;
         public ObservableCollection<boxClicked> boxes = new();
         private static ObservableCollection<TicTacToe> tictactoe = new ObservableCollection<TicTacToe>();
@@ -61,7 +61,9 @@ namespace klient
 
             if (win.ShowDialog() == true) {
                 log = win.Login;
+                client = new TcpClient("127.0.0.1", 9999);
                 Lobby lobby = new Lobby(this);
+
                 if(lobby.ShowDialog() == true)
                 {
                     Visibility = Visibility.Visible;
@@ -69,7 +71,7 @@ namespace klient
 
             }
 
-            client = new TcpClient("127.0.0.1", 9999);
+            
 
             Thread t = new Thread(() =>
             {

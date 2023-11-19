@@ -22,15 +22,15 @@ namespace klient
     /// 
     public partial class Lobby : Window
     {
-        TcpClient client;
-        public static string arena;
+        TcpClient client1;
+        public int arena;
         public string? log;
         private MainWindow mainWindow;
         public Lobby(MainWindow mainWindow)
         {
             InitializeComponent();
             log = MainWindow.log;
-            TcpClient client = mainWindow.client;
+            client1 = MainWindow.client;
             serverLeaderBoard.Items.Add(log);
             
             serverListBox.Items.Add("Arena 1");
@@ -44,8 +44,10 @@ namespace klient
 
         private void serverListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            arena = serverListBox.SelectedItem.ToString();
-            StreamWriter writer = new(client.GetStream());
+            arena = serverListBox.SelectedIndex;
+            arena++;
+            MessageBox.Show(arena.ToString());
+            StreamWriter writer = new(client1.GetStream());
             writer.WriteLine(arena);
             writer.Flush();
         }

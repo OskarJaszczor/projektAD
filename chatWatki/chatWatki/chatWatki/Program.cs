@@ -341,17 +341,18 @@ namespace chatWatki
             while (true)
             {
                 lobby.addClient(listener.AcceptTcpClient());
-
+                
 
             }
-            /*
-             *                 Game gra = new Game();
-                gra.Start();
 
-                gra.addClient(listener.AcceptTcpClient());
-                gra.addClient(listener.AcceptTcpClient());
-        
-            */
+            //Game gra = new Game();
+            //gra.Start();
+            
+
+            //gra.addClient(listener.AcceptTcpClient());
+            //gra.addClient(listener.AcceptTcpClient());
+
+
         }
     }
 }

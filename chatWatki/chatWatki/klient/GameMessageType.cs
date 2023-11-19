@@ -11,7 +11,7 @@
             TicTacToeReset,
             IpAdress,
             Nick,
-            Arena
+            Warrior
         }
     }
 }
