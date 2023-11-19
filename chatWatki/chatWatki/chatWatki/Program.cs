@@ -10,16 +10,6 @@ using System.Threading;
 
 namespace chatWatki
 {
-    enum GameMessageType
-    {
-        Chat,
-        TicTacToeMove,
-        TicTacToeWin,
-        TicTacToeDraw,
-        TicTacToeReset,
-        IpAdressNick,
-        IsAlive
-    }
 
 
     class Game
@@ -316,13 +306,18 @@ namespace chatWatki
                     if(waiting_player.Count >=2)
                     {
                         //Create Game
-                        Game gra = new Game();
-                        gra.Start();
+                        Game gra1 = new Game();
+                        Game gra2 = new Game();
+                        Game gra3 = new Game();
+                        Game gra4 = new Game();
+                        Game gra5 = new Game();
+                        
+                        //gra.Start();
 
-                        gra.addClient(waiting_player[0]);
-                        gra.addClient(waiting_player[1]);
-                        waiting_player.RemoveAt(0);
-                        waiting_player.RemoveAt(0);
+                        //gra.addClient(waiting_player[0]);
+                        //gra.addClient(waiting_player[1]);
+                        //waiting_player.RemoveAt(0);
+                        //waiting_player.RemoveAt(0);
                     }
                 }
             }).Start();

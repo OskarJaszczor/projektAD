@@ -27,16 +27,6 @@ namespace klient
     /// </summary>
     public partial class MainWindow : Window
     {
-        enum GameMessageType
-        {
-            Chat,
-            TicTacToeMove,
-            TicTacToeWin,
-            TicTacToeDraw,
-            TicTacToeReset,
-            IpAdress,
-            Nick
-        }
         public class boxClicked
         {
             public int Clicked { get; set; }
@@ -58,20 +48,20 @@ namespace klient
             }
         }
 
-        public TcpClient client;
+        public TcpClient client { get; set; }
         public static string? log;
         public ObservableCollection<boxClicked> boxes = new();
         private static ObservableCollection<TicTacToe> tictactoe = new ObservableCollection<TicTacToe>();
         public MainWindow()
         {
             InitializeComponent();
-
+            
             Visibility = Visibility.Hidden;
             nickWin win = new nickWin();
 
             if (win.ShowDialog() == true) {
                 log = win.Login;
-                Lobby lobby = new Lobby();
+                Lobby lobby = new Lobby(this);
                 if(lobby.ShowDialog() == true)
                 {
                     Visibility = Visibility.Visible;
@@ -275,7 +265,7 @@ namespace klient
             StreamWriter writer = new(client.GetStream());
             writer.WriteLine(GameMessageType.TicTacToeReset);
             writer.Flush();
-
+            
         }
     }
 }
