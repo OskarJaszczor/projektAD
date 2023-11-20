@@ -30,3 +30,19 @@ D:\OskarJaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\chatWa
 D:\OskarJaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\ref\chatWatki.dll
 D:\OskarJaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\chatWatki.pdb
 D:\OskarJaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.genruntimeconfig.cache
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\chatWatki.exe
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\chatWatki.deps.json
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\chatWatki.runtimeconfig.json
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\chatWatki.runtimeconfig.dev.json
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\chatWatki.dll
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\ref\chatWatki.dll
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\bin\Debug\net5.0\chatWatki.pdb
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.csproj.AssemblyReference.cache
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.GeneratedMSBuildEditorConfig.editorconfig
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.AssemblyInfoInputs.cache
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.AssemblyInfo.cs
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.csproj.CoreCompileInputs.cache
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.dll
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\ref\chatWatki.dll
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.pdb
+D:\Oskar Jaszczor\projektAD\chatWatki\chatWatki\chatWatki\obj\Debug\net5.0\chatWatki.genruntimeconfig.cache

@@ -21,6 +21,11 @@ namespace chatWatki
         public bool game_over = false;
         public bool gameFlag = true;
 
+        public bool isAvailable()
+        {
+            return players.Count < 2;
+        }
+
         public bool IsValidMove(int move, bool flag)
         {
             if (game_over != true)
@@ -237,7 +242,7 @@ namespace chatWatki
 
                 }
                 players.Add(new Players(ip.ToString(), nickname));
-                //Console.WriteLine($"Nowe połączenie od {ip.ToString()}"); // tak sie adres IP klienta pobiera 
+                Console.WriteLine($"Nowe połączenie od {ip.ToString()}"); // tak sie adres IP klienta pobiera 
 
                 while (true)
                 {
@@ -296,53 +301,63 @@ namespace chatWatki
     {
         public List<TcpClient> waiting_player = new List<TcpClient>();
         public List<TcpClient> players = new List<TcpClient>();
+        public Game[] games = new Game[5];
+
+        public Lobby()
+        {
+            for (int i = 0; i < games.Length; i++)
+            {
+                games[i] = new Game();
+            }
+        }
 
         public void addClient(TcpClient client)
         {
             waiting_player.Add(client);
         }
 
-        public void isArenaAvaible(TcpClient client)
+        public bool isArenaAvaiable(int index)
         {
-
+            return games[index].isAvailable();
         }
-        public void Start(TcpClient client)
+
+        public void sendArenaStatus(TcpClient client)
+        {
+            StreamReader reader = new(client.GetStream());
+            StreamWriter writer = new(client.GetStream());
+            string raw = reader.ReadLine();
+            string[] splitted = raw.Split('\0');
+            if(splitted[0] == "Arena")
+            {
+                int arena = Int32.Parse(splitted[1]);
+                if(isArenaAvaiable(arena) == true)
+                {
+                    writer.WriteLine(GameMessageType.Arena + "\0" + 1);
+                    writer.Flush();
+                }
+                else
+                {
+                    writer.WriteLine(GameMessageType.Arena + "\0" + 0);
+                    writer.Flush();
+                }
+                // 0 - false | 1 - true
+            }
+        }
+        public void Start()
         {
             new Thread(() =>
             {
-                TcpClient nick;
-                int arena = 0;
-                Game[] gry = new Game[5];
                 while (true)
                 {
-                    StreamReader reader = new(client.GetStream());
-                    string raw = reader.ReadLine();
-                    var splitted = raw.Split('\0');
-                    switch (splitted[0])
-                    {
-                        case "Arena":
-                            nick = splitted[1];
-                            players.Add(nick);
-                            arena = Int32.Parse(splitted[2]);
-                            break;
-
-                    }
-                    
                     if (waiting_player.Count >=2)
                     {
-                        //Create Game
                         
-                        for(int i=0;i<gry.Length;i++)
-                        {
-                            gry[i] = new Game();
-                        }
-                        gry[arena].Start();
                         //gra.Start();
 
-                        gry[arena].addClient(waiting_player[0]);
-                        gry[arena].addClient(waiting_player[1]);
-                        waiting_player.RemoveAt(0);
-                        waiting_player.RemoveAt(0);
+                        //gry.addClient(waiting_player[0]);
+                        //gry.addClient(waiting_player[1]);
+                        //waiting_player.RemoveAt(0);
+                        //waiting_player.RemoveAt(0);
                     }
                 }
             }).Start();
@@ -362,11 +377,10 @@ namespace chatWatki
             Lobby lobby = new Lobby();
 
             lobby.Start();
-
+            
             while (true)
             {
-                lobby.addClient(listener.AcceptTcpClient());
-                
+                lobby.addClient(listener.AcceptTcpClient());             
 
             }
 
