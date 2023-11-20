@@ -52,6 +52,7 @@ namespace klient
         public static string? log;
         public ObservableCollection<boxClicked> boxes = new();
         private static ObservableCollection<TicTacToe> tictactoe = new ObservableCollection<TicTacToe>();
+        Config config = new Config();
         public MainWindow()
         {
             InitializeComponent();
@@ -77,7 +78,7 @@ namespace klient
             {
                 StreamReader streamReader = new StreamReader(client.GetStream());
                 StreamWriter writer = new(client.GetStream());
-                writer.WriteLine(GameMessageType.Nick + "\0" + log);
+                writer.WriteLine(Config.GameMessageType.Nick + "\0" + log);
                 writer.Flush();
             while (true)
             {
@@ -157,7 +158,7 @@ namespace klient
             StreamWriter writer = new StreamWriter(client.GetStream());
             string message = log + '\0' + sendTbox.Text;
             sendTbox.Text = "";
-            var msg = (string)(GameMessageType.Chat + "\0" + message);      
+            var msg = (string)(Config.GameMessageType.Chat + "\0" + message);      
             writer.WriteLine(msg);
             writer.Flush();
 
@@ -220,7 +221,7 @@ namespace klient
         private void SendTicTacToeMove(int index)
         {
             StreamWriter writer = new(client.GetStream());
-            string msg = GameMessageType.TicTacToeMove + "\0" + index.ToString();
+            string msg = Config.GameMessageType.TicTacToeMove + "\0" + index.ToString();
             //MessageBox.Show(msg);
             writer.WriteLine(msg);
             writer.Flush();
@@ -265,7 +266,7 @@ namespace klient
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             StreamWriter writer = new(client.GetStream());
-            writer.WriteLine(GameMessageType.TicTacToeReset);
+            writer.WriteLine(Config.GameMessageType.TicTacToeReset);
             writer.Flush();
             
         }

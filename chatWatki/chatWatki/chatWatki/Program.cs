@@ -281,6 +281,10 @@ namespace chatWatki
                             resetBoard();
                             game_over = false;
                             break;
+                        case "Arena":
+                            string arena_nummber = splitted[1];
+                            string player_nick = splitted[2];
+                            break;
                     }
                 }
             });
@@ -291,33 +295,54 @@ namespace chatWatki
     class Lobby
     {
         public List<TcpClient> waiting_player = new List<TcpClient>();
+        public List<TcpClient> players = new List<TcpClient>();
 
         public void addClient(TcpClient client)
         {
             waiting_player.Add(client);
         }
 
-        public void Start()
+        public void isArenaAvaible(TcpClient client)
+        {
+
+        }
+        public void Start(TcpClient client)
         {
             new Thread(() =>
             {
-                while(true)
+                TcpClient nick;
+                int arena = 0;
+                Game[] gry = new Game[5];
+                while (true)
                 {
-                    if(waiting_player.Count >=2)
+                    StreamReader reader = new(client.GetStream());
+                    string raw = reader.ReadLine();
+                    var splitted = raw.Split('\0');
+                    switch (splitted[0])
+                    {
+                        case "Arena":
+                            nick = splitted[1];
+                            players.Add(nick);
+                            arena = Int32.Parse(splitted[2]);
+                            break;
+
+                    }
+                    
+                    if (waiting_player.Count >=2)
                     {
                         //Create Game
-                        Game gra1 = new Game();
-                        Game gra2 = new Game();
-                        Game gra3 = new Game();
-                        Game gra4 = new Game();
-                        Game gra5 = new Game();
                         
+                        for(int i=0;i<gry.Length;i++)
+                        {
+                            gry[i] = new Game();
+                        }
+                        gry[arena].Start();
                         //gra.Start();
 
-                        //gra.addClient(waiting_player[0]);
-                        //gra.addClient(waiting_player[1]);
-                        //waiting_player.RemoveAt(0);
-                        //waiting_player.RemoveAt(0);
+                        gry[arena].addClient(waiting_player[0]);
+                        gry[arena].addClient(waiting_player[1]);
+                        waiting_player.RemoveAt(0);
+                        waiting_player.RemoveAt(0);
                     }
                 }
             }).Start();

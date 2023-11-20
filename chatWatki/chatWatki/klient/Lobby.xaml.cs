@@ -48,7 +48,7 @@ namespace klient
             arena++;
             MessageBox.Show(arena.ToString());
             StreamWriter writer = new(client1.GetStream());
-            writer.WriteLine(arena);
+            writer.WriteLine(Config.GameMessageType.Arena + "\0" + client1 + "\0" + arena);
             writer.Flush();
         }
     }

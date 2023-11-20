@@ -1,8 +1,8 @@
 ﻿namespace klient
 {
-    public partial class MainWindow
+    public class Config
     {
-        enum GameMessageType
+        public enum GameMessageType
         {
             Chat,
             TicTacToeMove,
@@ -11,6 +11,7 @@
             TicTacToeReset,
             IpAdress,
             Nick,
+            Arena,
             Warrior
         }
     }
