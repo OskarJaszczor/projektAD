@@ -21,10 +21,7 @@ namespace chatWatki
         public bool game_over = false;
         public bool gameFlag = true;
 
-        public bool isAvailable()
-        {
-            return players.Count < 2;
-        }
+
 
         public bool IsValidMove(int move, bool flag)
         {
@@ -316,33 +313,6 @@ namespace chatWatki
             waiting_player.Add(client);
         }
 
-        public bool isArenaAvaiable(int index)
-        {
-            return games[index].isAvailable();
-        }
-
-        public void sendArenaStatus(TcpClient client)
-        {
-            StreamReader reader = new(client.GetStream());
-            StreamWriter writer = new(client.GetStream());
-            string raw = reader.ReadLine();
-            string[] splitted = raw.Split('\0');
-            if(splitted[0] == "Arena")
-            {
-                int arena = Int32.Parse(splitted[1]);
-                if(isArenaAvaiable(arena) == true)
-                {
-                    writer.WriteLine(GameMessageType.Arena + "\0" + 1);
-                    writer.Flush();
-                }
-                else
-                {
-                    writer.WriteLine(GameMessageType.Arena + "\0" + 0);
-                    writer.Flush();
-                }
-                // 0 - false | 1 - true
-            }
-        }
         public void Start()
         {
             new Thread(() =>
