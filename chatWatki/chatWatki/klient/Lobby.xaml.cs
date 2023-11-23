@@ -31,9 +31,17 @@ namespace klient
             InitializeComponent();
             log = MainWindow.log;
             client1 = MainWindow.client;
-            serverLeaderBoard.Items.Add(log);
+            serverLeaderBoard.Items.Add(log);          
             
+        }
 
+        private void searchGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            StreamWriter writer = new(client1.GetStream());
+            StreamReader reader = new(client1.GetStream());
+
+            writer.WriteLine(Config.GameMessageType.Arena);
+            writer.Flush();
         }
     }
 }

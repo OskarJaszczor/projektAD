@@ -283,10 +283,7 @@ namespace chatWatki
                             resetBoard();
                             game_over = false;
                             break;
-                        case "Arena":
-                            string arena_nummber = splitted[1];
-                            string player_nick = splitted[2];
-                            break;
+
                     }
                 }
             });
@@ -321,13 +318,14 @@ namespace chatWatki
                 {
                     if (waiting_player.Count >=2)
                     {
-                        
-                        //gra.Start();
+                        Game gra = new Game();
 
-                        //gry.addClient(waiting_player[0]);
-                        //gry.addClient(waiting_player[1]);
-                        //waiting_player.RemoveAt(0);
-                        //waiting_player.RemoveAt(0);
+                        gra.addClient(waiting_player[0]);
+                        gra.addClient(waiting_player[1]);
+                        waiting_player.RemoveAt(0);
+                        waiting_player.RemoveAt(0);
+
+                        gra.Start();
                     }
                 }
             }).Start();
