@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -13,10 +14,11 @@ namespace server
     {
         private TcpListener listener;
         public List<Client> clients = new List<Client>();
-
+        Lobby lobby = new Lobby();
         private void acceptClient(Client client)
         {
             clients.Add(client);
+            lobby.lobby_clients.Add(client);
             //lobby.clients.Add(client); dodac liste klientow w lobby i tu sb przekaze
         }
         public void startListening(int port)

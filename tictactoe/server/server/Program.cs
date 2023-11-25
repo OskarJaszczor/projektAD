@@ -13,7 +13,7 @@ namespace server
             Console.WriteLine("Server start!");
 
             Server server = new Server();
-            server.startListening(8080);
+            server.startListening(4444);
 
             while (true)
                 Thread.Sleep(999999);

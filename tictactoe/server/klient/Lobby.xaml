@@ -17,8 +17,8 @@
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="1" FontSize="30" Margin="0,0,0,0" TextWrapping="Wrap" Text="Poczekalnia" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button x:Name="sendBtn" Content="Send" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="187,312,0,0" VerticalAlignment="Top" Height="30" Width="78" />
-        <TextBox x:Name="sendTbox" HorizontalAlignment="Left" Margin="2,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Height="30" Grid.Row="1"/>
+        <Button x:Name="sendBtn" Content="Send" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="187,312,0,0" VerticalAlignment="Top" Height="30" Width="78" Click="sendMessageBtn_Click" />
+        <TextBox x:Name="MessageContentTbox" HorizontalAlignment="Left" Margin="2,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Height="30" Grid.Row="1"/>
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Margin="0,69,0,0" VerticalAlignment="Top" Width="263" Height="300" Grid.RowSpan="2">
             <TextBlock x:Name="receivedTbox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="4,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="258" Height="290"/>
         </Border>

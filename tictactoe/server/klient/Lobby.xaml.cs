@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,7 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using SharedData;
 namespace klient
 {
     /// <summary>
@@ -34,11 +36,52 @@ namespace klient
         public Lobby()
         {
             InitializeComponent();
-            client = new TcpClient("127.0.0.1", 9999);
+            client = new TcpClient("127.0.0.1", 4444);
             reader = new(client.GetStream());
             writer = new(client.GetStream());
-            
 
+            Thread DataReaderThread = new(() =>
+            {
+                while(true)
+                {                    
+                    readData();
+                }
+            });
+            DataReaderThread.Start();
+
+        }
+        private void sendMessageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string message = MessageContentTbox.Text;
+            MessageContentTbox.Text = null;
+            sendData(Config.GameMessageType.Chat, message);
+            
+        }
+        private void sendData(Config.GameMessageType type,string message)
+        {
+            //MessageBox.Show(message);
+            writer.WriteLine(type + "\0" + message);
+            writer.Flush();
+        }
+        private void readData()
+        {
+            string message = reader.ReadLine();
+            //MessageBox.Show(message);
+            var splitted = message.Split('\0');
+            switch (splitted[0])
+            {
+                case "Chat":
+                    showDataOnChat(splitted[1]);                   
+                    break;
+            }
+        }
+        private void showDataOnChat(string data)
+        {
+            Dispatcher.Invoke(new Action(() =>
+            {
+                receivedTbox.Text += data + "\n";
+            }));
+            
         }
     }
 }

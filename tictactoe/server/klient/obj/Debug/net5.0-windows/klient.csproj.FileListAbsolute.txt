@@ -22,3 +22,30 @@ D:\Oskar Jaszczor\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.dll
 D:\Oskar Jaszczor\tictactoe\server\klient\obj\Debug\net5.0-windows\ref\klient.dll
 D:\Oskar Jaszczor\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.pdb
 D:\Oskar Jaszczor\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.genruntimeconfig.cache
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.exe
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.deps.json
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.json
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.dev.json
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.dll
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.pdb
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.csproj.AssemblyReference.cache
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\Lobby.g.cs
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\MainWindow.g.cs
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\App.g.cs
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient_MarkupCompile.cache
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient_MarkupCompile.lref
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\Lobby.baml
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\MainWindow.baml
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.g.resources
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.AssemblyInfoInputs.cache
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.AssemblyInfo.cs
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.csproj.CoreCompileInputs.cache
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.dll
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\refint\klient.dll
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.pdb
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.genruntimeconfig.cache
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\ref\klient.dll
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\SharedData.dll
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\SharedData.pdb
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.csproj.CopyComplete

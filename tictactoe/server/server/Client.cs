@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedData;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,20 +12,30 @@ namespace server
 {
     class Client
     {
-        private TcpClient client;
-        
+        public TcpClient client;
+        private StreamReader reader;
+        private StreamWriter writer;
         public Client(TcpClient client)
         {
             this.client = client;
-            startListeningThread();
+            InitializeStreams();
+            //startListeningThread();
+            
         }
-        private void startListeningThread()
+        private void InitializeStreams()
         {
-            Thread t = new Thread(() =>
-            {
-                StreamReader reader = new StreamReader(client.GetStream());
-            });
-            t.Start();
+            reader = new StreamReader(client.GetStream());
+            writer = new StreamWriter(client.GetStream()) { AutoFlush = true };
         }
+        public void sendMessage(string data)
+        {
+            Console.WriteLine(data);
+            writer.WriteLine(data);
+        }
+        public string readMessage()
+        {
+            return reader.ReadLine();
+        }
+
     }
 }

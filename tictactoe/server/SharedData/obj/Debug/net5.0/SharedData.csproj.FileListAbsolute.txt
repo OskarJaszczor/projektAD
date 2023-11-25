@@ -1,0 +1,12 @@
+E:\C#\projektAD\tictactoe\server\SharedData\bin\Debug\net5.0\SharedData.deps.json
+E:\C#\projektAD\tictactoe\server\SharedData\bin\Debug\net5.0\SharedData.dll
+E:\C#\projektAD\tictactoe\server\SharedData\bin\Debug\net5.0\SharedData.pdb
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\SharedData.csproj.AssemblyReference.cache
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\SharedData.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\SharedData.AssemblyInfoInputs.cache
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\SharedData.AssemblyInfo.cs
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\SharedData.csproj.CoreCompileInputs.cache
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\SharedData.dll
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\refint\SharedData.dll
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\SharedData.pdb
+E:\C#\projektAD\tictactoe\server\SharedData\obj\Debug\net5.0\ref\SharedData.dll
