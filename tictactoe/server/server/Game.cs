@@ -13,13 +13,13 @@ namespace server
 
         public Game() 
         { 
-            new Thread(() =>
-            {
-                while (true)
-                {
-                    Console.WriteLine(game_clients.Count);
-                }
-            }).Start();
+            //new Thread(() =>
+            //{
+            //    while (true)
+            //    {
+            //        Console.WriteLine(game_clients.Count);
+            //    }
+            //}).Start();
 
         }
     }
