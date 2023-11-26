@@ -83,5 +83,11 @@ namespace klient
             }));
             
         }
+
+        private void searchGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            writer.WriteLine(Config.GameMessageType.Play);
+            writer.Flush();
+        }
     }
 }

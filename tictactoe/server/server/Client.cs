@@ -15,10 +15,12 @@ namespace server
         public TcpClient client;
         private StreamReader reader;
         private StreamWriter writer;
+        public bool readyToPlay;
         public Client(TcpClient client)
         {
             this.client = client;
             InitializeStreams();
+            readyToPlay = false;
             //startListeningThread();
             
         }
@@ -36,6 +38,13 @@ namespace server
         {
             return reader.ReadLine();
         }
-
+        public void setReadyToPlay()
+        {
+            readyToPlay = true;
+        }
+        public bool isReadyToPlay()
+        {
+            return readyToPlay;
+        }
     }
 }

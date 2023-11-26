@@ -21,6 +21,7 @@ namespace server
             lobby.lobby_clients.Add(client);
             //lobby.clients.Add(client); dodac liste klientow w lobby i tu sb przekaze
         }
+
         public void startListening(int port)
         {
             listener = new TcpListener(IPAddress.Any, port);
