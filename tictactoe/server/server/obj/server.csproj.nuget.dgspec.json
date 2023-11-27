@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\C#\\projektAD\\tictactoe\\server\\server\\server.csproj": {}
+    "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\server\\server.csproj": {}
   },
   "projects": {
-    "E:\\C#\\projektAD\\tictactoe\\server\\server\\server.csproj": {
+    "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C#\\projektAD\\tictactoe\\server\\server\\server.csproj",
+        "projectUniqueName": "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "E:\\C#\\projektAD\\tictactoe\\server\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\Oskar\\.nuget\\packages\\",
-        "outputPath": "E:\\C#\\projektAD\\tictactoe\\server\\server\\obj\\",
+        "projectPath": "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\server\\server.csproj",
+        "packagesPath": "C:\\Users\\jaszczorosk\\.nuget\\packages\\",
+        "outputPath": "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Oskar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jaszczorosk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "E:\\C#\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj": {
-                "projectPath": "E:\\C#\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj"
+              "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj": {
+                "projectPath": "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj"
               }
             }
           }
@@ -53,8 +53,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -63,24 +62,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\C#\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj": {
+    "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C#\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj",
+        "projectUniqueName": "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj",
         "projectName": "SharedData",
-        "projectPath": "E:\\C#\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj",
-        "packagesPath": "C:\\Users\\Oskar\\.nuget\\packages\\",
-        "outputPath": "E:\\C#\\projektAD\\tictactoe\\server\\SharedData\\obj\\",
+        "projectPath": "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj",
+        "packagesPath": "C:\\Users\\jaszczorosk\\.nuget\\packages\\",
+        "outputPath": "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\SharedData\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Oskar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jaszczorosk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -112,8 +111,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -122,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

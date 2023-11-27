@@ -31,6 +31,7 @@ namespace server
             {
                 while (true)
                 {
+                    Thread.Sleep(10);
                     if(lobby_clients.Count >0)
                     {
                         lock (lobbyLock)
@@ -66,18 +67,20 @@ namespace server
                 int? position = null;
                 while(true)
                 {
+                    Thread.Sleep(10);
                     lock (lobbyLock)
                     {
+                        
                         for (int i = 0; i < lobby_clients.Count; i++)
                         {
                             if (lobby_clients[i].readyToPlay == true)
                             {
                                 waiting_players.Add(lobby_clients[i]);
                                 lobby_clients.RemoveAt(i);
+                                i--;
                             }
                         }
                     }
-
                 }               
             });
             arePlayersReadyThread.Start();
@@ -88,12 +91,14 @@ namespace server
             {
                 while (true)
                 {
+                    Thread.Sleep(10);
                     if (waiting_players.Count >= 2)
                     {
                         Game gra = new Game();
-                        Console.WriteLine("uwtorzono gre");
+                        Console.WriteLine("Utworzono gre");
                         gra.game_clients.Add(waiting_players[0]);
                         gra.game_clients.Add(waiting_players[1]);
+                        gra.startGame();
                         waiting_players.RemoveAt(0);
                         waiting_players.RemoveAt(0);
                         //gra.Start();

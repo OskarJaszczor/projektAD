@@ -73,6 +73,11 @@ namespace klient
                 case "Chat":
                     showDataOnChat(splitted[1]);                   
                     break;
+                case "Game":
+                    Game game = new Game();
+                    Visibility = Visibility.Hidden;
+                    game.Visibility = Visibility.Visible;
+                    break;
             }
         }
         private void showDataOnChat(string data)

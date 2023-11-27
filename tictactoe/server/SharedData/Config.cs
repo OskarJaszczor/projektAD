@@ -12,6 +12,7 @@ namespace SharedData
         {
             Chat,
             Play,
+            Game,
         }
     }
 }
