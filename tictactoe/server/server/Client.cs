@@ -31,7 +31,6 @@ namespace server
         }
         public void sendMessage(string data)
         {
-            Console.WriteLine(data);
             writer.WriteLine(data);
         }
         public string readMessage()

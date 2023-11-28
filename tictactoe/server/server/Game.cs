@@ -11,8 +11,6 @@ namespace server
     class Game
     {
         public List<Client> game_clients = new List<Client>();
-        StreamReader reader;
-        StreamWriter writer;
         public Game() 
         {
 
@@ -22,8 +20,7 @@ namespace server
             foreach (Client client in game_clients)
             {
                 string message = Config.GameMessageType.Game.ToString();
-                writer.WriteLine(message);
-                writer.Flush();
+                client.sendMessage(message);
             }
         }
     }

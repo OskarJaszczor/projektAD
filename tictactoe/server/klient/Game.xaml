@@ -6,8 +6,19 @@
         xmlns:local="clr-namespace:klient"
         mc:Ignorable="d"
         Title="Game" Height="450" Width="800">
+
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="355,170,0,0" Text=":o" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="sendBtn" Content="Send" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="252,382,0,0" VerticalAlignment="Top" Height="29" Width="80" Click="sendMessageBtn_Click" />
+        <TextBox x:Name="MessageContentTbox" HorizontalAlignment="Left" Margin="68,382,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Height="29" Grid.Row="1"/>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Margin="0,69,0,0" VerticalAlignment="Top" Width="263" Height="300" Grid.RowSpan="2">
+            <TextBlock x:Name="receivedTbox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="4,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="258" Height="290"/>
+        </Border>
+        <Label x:Name="nickLobby" Content="" FontSize="25" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
     </Grid>
 </Window>

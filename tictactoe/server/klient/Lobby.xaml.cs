@@ -24,7 +24,7 @@ namespace klient
     public partial class Lobby : Window
     {
         public string username;
-        public static TcpClient client { get; set; }
+        public TcpClient client { get; set; }
         StreamReader reader = null;
         StreamWriter writer = null;
 
@@ -74,9 +74,13 @@ namespace klient
                     showDataOnChat(splitted[1]);                   
                     break;
                 case "Game":
-                    Game game = new Game();
-                    Visibility = Visibility.Hidden;
-                    game.Visibility = Visibility.Visible;
+                    Dispatcher.Invoke(() =>
+                    {
+                        Game game = new Game();
+                        Visibility = Visibility.Hidden;
+                        game.Visibility = Visibility.Visible;
+                    });
+
                     break;
             }
         }
