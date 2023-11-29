@@ -11,6 +11,7 @@ namespace SharedData
         public enum GameMessageType
         {
             Chat,
+            InGameChat,
             Play,
             Game,
         }

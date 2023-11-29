@@ -49,7 +49,7 @@ namespace klient
         {
             string message = MessageContentTbox.Text;
             MessageContentTbox.Text = null;
-            sendData(Config.GameMessageType.Chat, message);
+            sendData(Config.GameMessageType.InGameChat, message);
 
         }
         private void sendData(Config.GameMessageType type, string message)
@@ -65,17 +65,8 @@ namespace klient
             var splitted = message.Split('\0');
             switch (splitted[0])
             {
-                case "Chat":
+                case "InGameChat":
                     showDataOnChat(splitted[1]);
-                    break;
-                case "Game":
-                    Dispatcher.Invoke(() =>
-                    {
-                        Game game = new Game();
-                        Visibility = Visibility.Hidden;
-                        game.Visibility = Visibility.Visible;
-                    });
-
                     break;
             }
         }

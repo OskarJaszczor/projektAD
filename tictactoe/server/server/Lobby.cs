@@ -99,6 +99,7 @@ namespace server
                         gra.game_clients.Add(waiting_players[0]);
                         gra.game_clients.Add(waiting_players[1]);
                         gra.startGame();
+                        
                         waiting_players.RemoveAt(0);
                         waiting_players.RemoveAt(0);
                         //gra.Start();

@@ -18,7 +18,6 @@
         <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Margin="0,69,0,0" VerticalAlignment="Top" Width="263" Height="300" Grid.RowSpan="2">
             <TextBlock x:Name="receivedTbox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="4,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="258" Height="290"/>
         </Border>
-        <Label x:Name="nickLobby" Content="" FontSize="25" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
     </Grid>
 </Window>
