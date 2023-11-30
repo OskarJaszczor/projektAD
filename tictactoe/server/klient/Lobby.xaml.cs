@@ -27,6 +27,7 @@ namespace klient
         public static TcpClient client = null;
         StreamReader reader = null;
         StreamWriter writer = null;
+        private object lobbyLock = new object();
 
         public void setUp(string nickname)
         {
@@ -45,9 +46,12 @@ namespace klient
 
             Thread DataReaderThread = new(() =>
             {
-                while(true)
-                {                    
-                    readData();
+                lock(lobbyLock)
+                {
+                    while (true)
+                    {
+                        readData();
+                    }
                 }
             });
             DataReaderThread.Start();
@@ -79,9 +83,12 @@ namespace klient
                 case "Game":
                     Dispatcher.Invoke(() =>
                     {
-                        Game game = new Game();
-                        Visibility = Visibility.Hidden;
-                        game.Visibility = Visibility.Visible;
+                        lock(lobbyLock)
+                        {
+                            Game game = new Game();
+                            Visibility = Visibility.Hidden;
+                            game.Visibility = Visibility.Visible;
+                        }
                     });
 
                     break;

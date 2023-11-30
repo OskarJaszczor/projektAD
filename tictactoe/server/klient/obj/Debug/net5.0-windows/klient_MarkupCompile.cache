@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\OskarJaszczor\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\
 klient
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-D:\OskarJaszczor\projektAD\tictactoe\server\klient\App.xaml
+E:\C#\projektAD\tictactoe\server\klient\App.xaml
 3-343536120
 
 51604140720
-194652338590
+194-454017786
 Game.xaml;Lobby.xaml;MainWindow.xaml;
 
 False

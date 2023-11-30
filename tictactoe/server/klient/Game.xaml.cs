@@ -66,6 +66,7 @@ namespace klient
             switch (splitted[0])
             {
                 case "InGameChat":
+                    string data = splitted[1];
                     showDataOnChat(splitted[1]);
                     break;
             }

@@ -37,14 +37,15 @@ namespace server
                             string message = client.getPacket();
                             if (message != null)
                             {
-                                Console.WriteLine(message);
+                                //Console.WriteLine(message);
                                 var splitted = message.Split('\0');
                                 switch (splitted[0])
                                 {
                                     case "InGameChat":
-                                        Console.WriteLine("dziala");
+                                        string smg = message;
+                                        Console.WriteLine(splitted[1]);
                                         sendMessageToAll(Config.GameMessageType.InGameChat, splitted[1]);
-                                        break;
+                                    break;
                                 }
                             }
                         }
@@ -56,11 +57,10 @@ namespace server
         }
         private void sendMessageToAll(Config.GameMessageType type, string data)
         {
-            foreach (Client client in game_clients)
-            {
-                string message = type.ToString() + "\0" + data;
-                client.sendMessage(message);
-            }
+            string message = type.ToString() + "\0" + data;
+            game_clients[0].sendMessage(message);
+            game_clients[1].sendMessage(message);
+            
         }
     }
 }
