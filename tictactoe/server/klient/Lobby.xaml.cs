@@ -24,7 +24,7 @@ namespace klient
     public partial class Lobby : Window
     {
         public string username;
-        public TcpClient client { get; set; }
+        public static TcpClient client = null;
         StreamReader reader = null;
         StreamWriter writer = null;
 
@@ -36,7 +36,10 @@ namespace klient
         public Lobby()
         {
             InitializeComponent();
-            client = new TcpClient("127.0.0.1", 4444);
+    
+            if(client == null)
+                client = new TcpClient("127.0.0.1", 4444);
+            
             reader = new(client.GetStream());
             writer = new(client.GetStream());
 

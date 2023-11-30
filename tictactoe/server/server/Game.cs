@@ -29,11 +29,26 @@ namespace server
             {
                 while (true)
                 {
-                    Console.WriteLine("1");
-                    foreach(Client client in game_clients)
+                    Thread.Sleep(10);
+                    if (game_clients.Count > 0)
                     {
-                        string message = client.readMessage();
-                        Console.WriteLine(message);
+                        foreach(Client client in game_clients)
+                        {
+                            string message = client.getPacket();
+                            if (message != null)
+                            {
+                                Console.WriteLine(message);
+                                var splitted = message.Split('\0');
+                                switch (splitted[0])
+                                {
+                                    case "InGameChat":
+                                        Console.WriteLine("dziala");
+                                        sendMessageToAll(Config.GameMessageType.InGameChat, splitted[1]);
+                                        break;
+                                }
+                            }
+                        }
+                        
                     }
                 }
             });
@@ -43,7 +58,7 @@ namespace server
         {
             foreach (Client client in game_clients)
             {
-                string message = type + "\0" + data;
+                string message = type.ToString() + "\0" + data;
                 client.sendMessage(message);
             }
         }

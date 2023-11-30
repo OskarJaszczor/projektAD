@@ -29,8 +29,7 @@ namespace klient
         public Game()
         {
             InitializeComponent();
-            Lobby lobby = new Lobby();
-            client = lobby.client;
+            client = Lobby.client;
             reader = new(client.GetStream());
             writer = new(client.GetStream());
 
@@ -55,7 +54,8 @@ namespace klient
         private void sendData(Config.GameMessageType type, string message)
         {
             //MessageBox.Show(message);
-            writer.WriteLine(type + "\0" + message);
+            string combined = type + "\0" + message;
+            writer.WriteLine(combined);
             writer.Flush();
         }
         private void readData()

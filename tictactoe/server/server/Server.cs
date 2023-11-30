@@ -13,7 +13,7 @@ namespace server
     class Server
     {
         private TcpListener listener;
-        public List<Client> clients = new List<Client>();
+        private List<Client> clients = new List<Client>();
         Lobby lobby = new Lobby();
         private void acceptClient(Client client)
         {
@@ -31,6 +31,7 @@ namespace server
                 while(true)
                 {
                     TcpClient connection = listener.AcceptTcpClient();
+                    Console.WriteLine("Got new Client!");
                     Client client = new Client(connection);
                     acceptClient(client);
                 }
