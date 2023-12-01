@@ -14,9 +14,6 @@ E:\C#\projektAD\tictactoe\server\server\obj\Debug\net5.0\refint\server.dll
 E:\C#\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.pdb
 E:\C#\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.genruntimeconfig.cache
 E:\C#\projektAD\tictactoe\server\server\obj\Debug\net5.0\ref\server.dll
-E:\C#\projektAD\tictactoe\server\server\bin\Debug\net5.0\SharedData.dll
-E:\C#\projektAD\tictactoe\server\server\bin\Debug\net5.0\SharedData.pdb
-E:\C#\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.csproj.CopyComplete
 D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\server.exe
 D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\server.deps.json
 D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\server.runtimeconfig.json

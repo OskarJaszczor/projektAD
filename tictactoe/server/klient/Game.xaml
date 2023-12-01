@@ -19,5 +19,27 @@
             <TextBlock x:Name="receivedTbox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="4,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="258" Height="290"/>
         </Border>
 
+        <Grid Grid.Column="3" Width="300" Height="300" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button x:Name="boxName0" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="0" Click="box1"/>
+            <Button x:Name="boxName1" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="0" Click="box2"/>
+            <Button x:Name="boxName2" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="0" Click="box3"/>
+            <Button x:Name="boxName3" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="1" Click="box4"/>
+            <Button x:Name="boxName4" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="1" Click="box5"/>
+            <Button x:Name="boxName5" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="1" Click="box6"/>
+            <Button x:Name="boxName6" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="2" Click="box7"/>
+            <Button x:Name="boxName7" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="2" Click="box8"/>
+            <Button x:Name="boxName8" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="2" Click="box9"/>
+
+        </Grid>
     </Grid>
 </Window>

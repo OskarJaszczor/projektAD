@@ -7,27 +7,14 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "klient/1.0.0": {
-        "dependencies": {
-          "SharedData": "1.0.0"
-        },
         "runtime": {
           "klient.dll": {}
-        }
-      },
-      "SharedData/1.0.0": {
-        "runtime": {
-          "SharedData.dll": {}
         }
       }
     }
   },
   "libraries": {
     "klient/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "SharedData/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -28,7 +28,7 @@ namespace klient
         StreamReader reader = null;
         StreamWriter writer = null;
         private object lobbyLock = new object();
-
+        Game game;
         public void setUp(string nickname)
         {
             nickLobby.Content = username;
@@ -46,13 +46,12 @@ namespace klient
 
             Thread DataReaderThread = new(() =>
             {
-                lock(lobbyLock)
+
+                while (true)
                 {
-                    while (true)
-                    {
-                        readData();
-                    }
+                    readData();
                 }
+                
             });
             DataReaderThread.Start();
 
@@ -83,14 +82,14 @@ namespace klient
                 case "Game":
                     Dispatcher.Invoke(() =>
                     {
-                        lock(lobbyLock)
-                        {
-                            Game game = new Game();
-                            Visibility = Visibility.Hidden;
-                            game.Visibility = Visibility.Visible;
-                        }
-                    });
+                        game = new Game();
+                        Visibility = Visibility.Hidden;
+                        game.Visibility = Visibility.Visible;
 
+                    });
+                   break;
+                case "InGameChat":
+                    game.showDataOnChat(splitted[1]);
                     break;
             }
         }

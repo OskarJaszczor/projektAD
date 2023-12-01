@@ -33,15 +33,6 @@ namespace klient
             reader = new(client.GetStream());
             writer = new(client.GetStream());
 
-            Thread DataReaderThread = new(() =>
-            {
-                while (true)
-                {
-                    readData();
-                }
-            });
-            DataReaderThread.Start();
-
         }
 
         private void sendMessageBtn_Click(object sender, RoutedEventArgs e)
@@ -58,20 +49,7 @@ namespace klient
             writer.WriteLine(combined);
             writer.Flush();
         }
-        private void readData()
-        {
-            string message = reader.ReadLine();
-            //MessageBox.Show(message);
-            var splitted = message.Split('\0');
-            switch (splitted[0])
-            {
-                case "InGameChat":
-                    string data = splitted[1];
-                    showDataOnChat(splitted[1]);
-                    break;
-            }
-        }
-        private void showDataOnChat(string data)
+        public void showDataOnChat(string data)
         {
             Dispatcher.Invoke(new Action(() =>
             {

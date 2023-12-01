@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {
-      "SharedData/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/SharedData.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/SharedData.dll": {}
-        }
-      }
-    }
+    "net5.0-windows7.0": {}
   },
-  "libraries": {
-    "SharedData/1.0.0": {
-      "type": "project",
-      "path": "../SharedData/SharedData.csproj",
-      "msbuildProject": "../SharedData/SharedData.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": [
-      "SharedData >= 1.0.0"
-    ]
+    "net5.0-windows7.0": []
   },
   "packageFolders": {
     "C:\\Users\\Oskar\\.nuget\\packages\\": {},
@@ -57,11 +38,7 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {
-            "E:\\C#\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj": {
-              "projectPath": "E:\\C#\\projektAD\\tictactoe\\server\\SharedData\\SharedData.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

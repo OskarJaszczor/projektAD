@@ -42,10 +42,9 @@ namespace server
                                 switch (splitted[0])
                                 {
                                     case "InGameChat":
-                                        string smg = message;
-                                        Console.WriteLine(splitted[1]);
+                                        //Console.WriteLine(message);
                                         sendMessageToAll(Config.GameMessageType.InGameChat, splitted[1]);
-                                    break;
+                                        break;
                                 }
                             }
                         }
@@ -57,10 +56,12 @@ namespace server
         }
         private void sendMessageToAll(Config.GameMessageType type, string data)
         {
-            string message = type.ToString() + "\0" + data;
-            game_clients[0].sendMessage(message);
-            game_clients[1].sendMessage(message);
-            
+            foreach (Client client in game_clients)
+            {
+                string message = type.ToString() + "\0" + data;
+               // Console.WriteLine(message);
+                client.sendMessage(message);
+            }
         }
     }
 }

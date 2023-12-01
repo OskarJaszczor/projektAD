@@ -46,9 +46,6 @@ E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\refint\klient.d
 E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.pdb
 E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.genruntimeconfig.cache
 E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\ref\klient.dll
-E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\SharedData.dll
-E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\SharedData.pdb
-E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.csproj.CopyComplete
 D:\oskarjaszczor\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.exe
 D:\oskarjaszczor\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.deps.json
 D:\oskarjaszczor\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\klient.runtimeconfig.json
