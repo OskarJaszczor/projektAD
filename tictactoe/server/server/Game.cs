@@ -5,14 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using SharedData;
+using shared;
+
 namespace server
 {
     class Game
     {
         public List<Client> game_clients = new List<Client>();
+        Board board;
+        private int currentPlayerIndex = 0;
+        private object lobbyLock = new object();
+        private bool gameEnded;
         public Game() 
         {
+            board = new Board();
+            gameEnded = false;
             startListeningThread();
         }
         public void startGame()
@@ -21,7 +28,11 @@ namespace server
             {
                 string message = Config.GameMessageType.Game.ToString();
                 client.sendMessage(message);
+                Console.WriteLine(client.client_nickname);
             }
+            game_clients[0].character = "O";
+            game_clients[1].character = "X";
+            currentPlayerIndex = 0;
         }
         private void startListeningThread()
         {
@@ -32,22 +43,81 @@ namespace server
                     Thread.Sleep(10);
                     if (game_clients.Count > 0)
                     {
-                        foreach(Client client in game_clients)
+                        lock(lobbyLock)
                         {
-                            string message = client.getPacket();
-                            if (message != null)
+                            foreach (Client client in game_clients.ToList())
                             {
-                                //Console.WriteLine(message);
-                                var splitted = message.Split('\0');
-                                switch (splitted[0])
+                                if (gameEnded == true)
+                                    break;
+                                string message = client.getPacket();
+                                if (message != null)
                                 {
-                                    case "InGameChat":
-                                        //Console.WriteLine(message);
-                                        sendMessageToAll(Config.GameMessageType.InGameChat, splitted[1]);
-                                        break;
+                                    //Console.WriteLine(message);
+                                    var splitted = message.Split('\0');
+                                    switch (splitted[0])
+                                    {
+                                        case "InGameChat":
+                                            //Console.WriteLine(message);
+                                            sendMessageToAll(Config.GameMessageType.InGameChat, splitted[1]);
+                                            break;
+                                        case "Move":
+                                            int moveIndex = Int32.Parse(splitted[1]);
+
+                                            // Sprawdź, czy aktualny gracz ma prawo do wykonania ruchu
+                                            if (game_clients[currentPlayerIndex] == client)
+                                            {
+                                                // Sprawdź, czy ruch jest dozwolony
+                                                bool validMove = board.PlaceMark(moveIndex, client.character[0]);
+
+                                                if (validMove)
+                                                {
+                                                    // Zmiana aktualnego gracza na następnego
+                                                    if (board.CheckWin(game_clients[currentPlayerIndex].character[0]))
+                                                    {
+                                                        // Gra zakończona, jest zwycięzca
+                                                        Console.WriteLine($"Gracz {game_clients[currentPlayerIndex].client_nickname} wygrał!");
+                                                        game_clients[currentPlayerIndex].game_wins++;
+                                                        sendMessageToAll(Config.GameMessageType.Win, $"{client.character}\0{moveIndex}");
+                                                        Thread.Sleep(100);
+                                                        endGame();
+                                                        break;
+
+                                                        // Dodaj kod obsługi zakończenia gry
+                                                    }
+                                                    else
+                                                    {
+                                                        // Sprawdzenie remisu po ruchu gracza, ale tylko jeśli nie ma jeszcze zwycięzcy
+                                                        if (board.IsFull())
+                                                        {
+                                                            // Gra zakończona, remis
+                                                            Console.WriteLine("Remis!");
+                                                            sendMessageToAll(Config.GameMessageType.Draw, $"{client.character}\0{moveIndex}");
+                                                            
+                                                            endGame();
+                                                            // Dodaj kod obsługi zakończenia gry
+                                                        }
+                                                        else
+                                                        {
+                                                            // Przełącz do następnego gracza
+                                                            currentPlayerIndex = (currentPlayerIndex + 1) % 2;
+                                                        }
+                                                    }
+
+                                                    // Wysłanie informacji o ruchu do wszystkich klientów
+                                                    Console.WriteLine($"{client.character}\0{moveIndex}");
+                                                    sendMessageToAll(Config.GameMessageType.Move, $"{client.character}\0{moveIndex}\0${client.client_nickname}");
+                                                }
+                                                else
+                                                {
+                                                    // Wysłanie informacji zwrotnej do klienta, że ruch był nieprawidłowy
+                                                    client.sendMessage($"{Config.GameMessageType.InvalidMove}\0Invalid move. Try again.");
+                                                }
+                                            }
+                                            break;
+                                    }
                                 }
                             }
-                        }
+                        }                     
                         
                     }
                 }
@@ -61,6 +131,19 @@ namespace server
                 string message = type.ToString() + "\0" + data;
                // Console.WriteLine(message);
                 client.sendMessage(message);
+            }
+        }
+        private void endGame()
+        {
+            lock (lobbyLock)
+            {
+                game_clients[0].readyToPlay = false;
+                game_clients[1].readyToPlay = false;
+                Lobby.lobby_clients.Add(game_clients[0]);
+                Lobby.lobby_clients.Add(game_clients[1]);
+                game_clients.Clear();
+                
+                gameEnded = true;
             }
         }
     }

@@ -14,12 +14,11 @@ namespace server
     {
         private TcpListener listener;
         private List<Client> clients = new List<Client>();
-        Lobby lobby = new Lobby();
+        public Lobby lobby = new Lobby();
         private void acceptClient(Client client)
         {
             clients.Add(client);
-            lobby.lobby_clients.Add(client);
-            //lobby.clients.Add(client); dodac liste klientow w lobby i tu sb przekaze
+            Lobby.lobby_clients.Add(client);
         }
 
         public void startListening(int port)

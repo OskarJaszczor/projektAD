@@ -1,4 +1,4 @@
-﻿using SharedData;
+﻿using shared;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -56,6 +56,63 @@ namespace klient
                 receivedTbox.Text += data + "\n";
             }));
 
+        }
+        public void drawOnBoard(int index, string character)
+        {
+            string buttonName = "boxName" + index;
+            Dispatcher.Invoke(() =>
+            {
+                Button foundButton = FindName(buttonName) as Button;
+                foundButton.Content = character == "X" ? "X" : "O";
+            });
+        }
+        public void move(int index)
+        {
+            sendData(Config.GameMessageType.Move, index.ToString());
+        }
+        private void boxName0_Click(object sender, RoutedEventArgs e)
+        {
+            move(1);
+        }
+
+        private void boxName1_Click(object sender, RoutedEventArgs e)
+        {
+            move(2);
+        }
+
+        private void boxName2_Click(object sender, RoutedEventArgs e)
+        {
+            move(3);
+        }
+
+        private void boxName3_Click(object sender, RoutedEventArgs e)
+        {
+            move(4);
+        }
+
+        private void boxName4_Click(object sender, RoutedEventArgs e)
+        {
+            move(5);
+        }
+
+        private void boxName5_Click(object sender, RoutedEventArgs e)
+        {
+            move(6);
+        }
+
+        private void boxName6_Click(object sender, RoutedEventArgs e)
+        {
+            move(7);
+        }
+
+        private void boxName7_Click(object sender, RoutedEventArgs e)
+        {
+            move(8);
+        }
+
+        private void boxName8_Click(object sender, RoutedEventArgs e)
+        {
+            move(9);
         }
 
     }

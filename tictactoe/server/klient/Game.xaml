@@ -30,15 +30,15 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Button x:Name="boxName0" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="0" Click="box1"/>
-            <Button x:Name="boxName1" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="0" Click="box2"/>
-            <Button x:Name="boxName2" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="0" Click="box3"/>
-            <Button x:Name="boxName3" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="1" Click="box4"/>
-            <Button x:Name="boxName4" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="1" Click="box5"/>
-            <Button x:Name="boxName5" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="1" Click="box6"/>
-            <Button x:Name="boxName6" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="2" Click="box7"/>
-            <Button x:Name="boxName7" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="2" Click="box8"/>
-            <Button x:Name="boxName8" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="2" Click="box9"/>
+            <Button x:Name="boxName1" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="0" Click="boxName0_Click"/>
+            <Button x:Name="boxName2" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="0" Click="boxName1_Click"/>
+            <Button x:Name="boxName3" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="0" Click="boxName2_Click"/>
+            <Button x:Name="boxName4" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="1" Click="boxName3_Click"/>
+            <Button x:Name="boxName5" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="1" Click="boxName4_Click"/>
+            <Button x:Name="boxName6" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="1" Click="boxName5_Click"/>
+            <Button x:Name="boxName7" FontSize="50" Content="" Height="100" Width="100" Grid.Column="0" Grid.Row="2" Click="boxName6_Click"/>
+            <Button x:Name="boxName8" FontSize="50" Content="" Height="100" Width="100" Grid.Column="1" Grid.Row="2" Click="boxName7_Click"/>
+            <Button x:Name="boxName9" FontSize="50" Content="" Height="100" Width="100" Grid.Column="2" Grid.Row="2" Click="boxName8_Click"/>
 
         </Grid>
     </Grid>

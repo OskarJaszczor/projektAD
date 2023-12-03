@@ -33,3 +33,6 @@ D:\oskarjaszczor\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.dll
 D:\oskarjaszczor\projektAD\tictactoe\server\server\obj\Debug\net5.0\ref\server.dll
 D:\oskarjaszczor\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.pdb
 D:\oskarjaszczor\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.genruntimeconfig.cache
+E:\C#\projektAD\tictactoe\server\server\bin\Debug\net5.0\shared.dll
+E:\C#\projektAD\tictactoe\server\server\bin\Debug\net5.0\shared.pdb
+E:\C#\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.csproj.CopyComplete

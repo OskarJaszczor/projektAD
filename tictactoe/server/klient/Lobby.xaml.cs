@@ -15,7 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using SharedData;
+using shared;
 namespace klient
 {
     /// <summary>
@@ -29,9 +29,12 @@ namespace klient
         StreamWriter writer = null;
         private object lobbyLock = new object();
         Game game;
+        
         public void setUp(string nickname)
         {
             nickLobby.Content = username;
+            writer.WriteLine("Nick\0" + username);
+            writer.Flush();
         }
 
         public Lobby()
@@ -39,7 +42,7 @@ namespace klient
             InitializeComponent();
     
             if(client == null)
-                client = new TcpClient("127.0.0.1", 4444);
+            client = new TcpClient("127.0.0.1", 4444);
             
             reader = new(client.GetStream());
             writer = new(client.GetStream());
@@ -91,6 +94,32 @@ namespace klient
                 case "InGameChat":
                     game.showDataOnChat(splitted[1]);
                     break;
+                case "Move":
+                    game.drawOnBoard(Int32.Parse(splitted[2]), splitted[1]);
+                    break;
+                case "InvalidMove":
+                    MessageBox.Show(splitted[1]);
+                    break;
+                case "Win":
+                    game.drawOnBoard(Int32.Parse(splitted[2]), splitted[1]);
+                    Dispatcher.Invoke(() =>
+                    {
+                        game.Close();
+                        Visibility = Visibility.Visible;
+                        
+                    });                   
+
+                    
+                    break;
+                case "Draw":
+                    game.drawOnBoard(Int32.Parse(splitted[2]), splitted[1]);
+                    Dispatcher.Invoke(() =>
+                    {
+                        game.Close();
+                        Visibility = Visibility.Visible;
+
+                    });
+                    break;
             }
         }
         private void showDataOnChat(string data)
@@ -104,7 +133,7 @@ namespace klient
 
         private void searchGameButton_Click(object sender, RoutedEventArgs e)
         {
-            writer.WriteLine(Config.GameMessageType.Play);
+            writer.WriteLine(Config.GameMessageType.Play + "\0" + username);
             writer.Flush();
         }
     }

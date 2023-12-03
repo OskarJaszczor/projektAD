@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "server/1.0.0": {
+        "dependencies": {
+          "shared": "1.0.0"
+        },
         "runtime": {
           "server.dll": {}
+        }
+      },
+      "shared/1.0.0": {
+        "runtime": {
+          "shared.dll": {}
         }
       }
     }
   },
   "libraries": {
     "server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

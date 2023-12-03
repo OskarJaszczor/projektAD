@@ -1,4 +1,4 @@
-﻿using SharedData;
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +13,9 @@ namespace server
     class Client
     {
         public TcpClient client;
+        public string client_nickname;
+        public int game_wins;
+        public string character;
         private StreamReader reader;
         private StreamWriter writer;
         public bool readyToPlay;
@@ -25,7 +28,7 @@ namespace server
             readyToPlay = false;
             //startListeningThread();
             Thread DataReader = new(() =>
-           {
+            {
                while(true)
                {
                    string packet = reader.ReadLine();
@@ -34,7 +37,7 @@ namespace server
                        packetQueue.Add(packet);
                    }
                }
-           });
+            });
             DataReader.Start();
         }
         private void InitializeStreams()
@@ -49,6 +52,9 @@ namespace server
                 if (packetQueue.Count >= 1)
                 {
                     string data = packetQueue[0];
+                    var splitted = data.Split('\0');
+                    if (splitted[0] == "Nick") 
+                        client_nickname = splitted[1];
                     packetQueue.RemoveAt(0);
                     return data;
                 }

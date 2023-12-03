@@ -77,3 +77,6 @@ D:\oskarjaszczor\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\Game
 D:\oskarjaszczor\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\Game.baml
 E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\Game.g.cs
 E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\Game.baml
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\shared.dll
+E:\C#\projektAD\tictactoe\server\klient\bin\Debug\net5.0-windows\shared.pdb
+E:\C#\projektAD\tictactoe\server\klient\obj\Debug\net5.0-windows\klient.csproj.CopyComplete

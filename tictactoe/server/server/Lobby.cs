@@ -8,14 +8,15 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using SharedData;
+using shared;
 namespace server
 {
     class Lobby
     {
-         public List<Client> lobby_clients = new List<Client>();
-         public List<Client> waiting_players = new List<Client>();
-         private object lobbyLock = new object();
+        public static List<Client> lobby_clients = new List<Client>();
+        public List<Client> waiting_players = new List<Client>();
+         
+        private object lobbyLock = new object();
         public Lobby()
         {
             startListeningThread();
@@ -48,10 +49,6 @@ namespace server
                                         case "Play":
                                             lobby_clients[i].readyToPlay = true; // jak usuwa kleintow z lobby_clients to petle wywala po sie zmienjsz ilosc indexow
                                             break;
-                                        //case "InGameChat":
-                                        //    Console.WriteLine("dziala lobby");
-                                        //    //sendMessageToAll(Config.GameMessageType.InGameChat, splitted[1]);
-                                        //    break;
                                     }
                                 }
                             }
