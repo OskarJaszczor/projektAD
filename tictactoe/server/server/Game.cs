@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,12 +18,38 @@ namespace server
         private int currentPlayerIndex = 0;
         private object lobbyLock = new object();
         private bool gameEnded;
+        public List<Leaderboard> Leaderboard { get; private set; } = new List<Leaderboard>();
+
+        public event EventHandler<List<Leaderboard>> LeaderboardUpdated;
+
+        private void OnLeaderboardUpdated(List<Leaderboard> leaderboard)
+        {
+            LeaderboardUpdated?.Invoke(this, leaderboard);
+        }
         public Game() 
         {
             board = new Board();
             gameEnded = false;
             startListeningThread();
+
+            //leaderboard.CollectionChanged += (sender, e) =>
+            //{
+            //    //if (e.Action != NotifyCollectionChangedAction.Add) return;
+            //    //    var newMessages = e.NewItems;
+
+            //    Thread t = new(() =>
+            //    {
+            //        foreach (var e in leaderboard)
+            //        {
+            //            Console.WriteLine(e.nickname + ": " + e.winGames);
+                        
+            //        }
+            //    });
+            //    t.Start();
+            //};
+
         }
+
         public void startGame()
         {
             foreach (Client client in game_clients)
@@ -77,7 +105,13 @@ namespace server
                                                         // Gra zakończona, jest zwycięzca
                                                         Console.WriteLine($"Gracz {game_clients[currentPlayerIndex].client_nickname} wygrał!");
                                                         game_clients[currentPlayerIndex].game_wins++;
-                                                        sendMessageToAll(Config.GameMessageType.Win, $"{client.character}\0{moveIndex}");
+                                                        Leaderboard.Add(new Leaderboard(game_clients[currentPlayerIndex].client_nickname, game_clients[currentPlayerIndex].game_wins));
+                                                        string data = "";
+                                                        foreach(var e in Leaderboard)
+                                                        {
+                                                            data += e.Nickname + ":" + e.WinGames + ";";
+                                                        }
+                                                        sendMessageToAll(Config.GameMessageType.Win, $"{client.character}\0{moveIndex}\0{data}");
                                                         Thread.Sleep(100);
                                                         endGame();
                                                         break;
@@ -133,6 +167,7 @@ namespace server
                 client.sendMessage(message);
             }
         }
+
         private void endGame()
         {
             lock (lobbyLock)
@@ -145,6 +180,22 @@ namespace server
                 
                 gameEnded = true;
             }
+        }
+        private void SendLeaderboard()
+        {
+            OnLeaderboardUpdated(Leaderboard);
+            string message = "";
+            foreach(Leaderboard lb in Leaderboard)
+            {
+                message += lb.Nickname + ":" + lb.WinGames + ";";
+            }
+            
+            foreach (Client client in game_clients)
+            {
+                client.sendMessage(Config.GameMessageType.LeaderBoard + "\0" + message);
+            }
+
+            Console.WriteLine(Config.GameMessageType.LeaderBoard + "\0" + message);
         }
     }
 }

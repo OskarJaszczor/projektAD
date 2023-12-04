@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.IO;
 using System.Linq;
@@ -23,13 +24,16 @@ namespace klient
     /// </summary>
     public partial class Lobby : Window
     {
-        public string username;
+       
+
+        public static string username;
         public static TcpClient client = null;
         StreamReader reader = null;
         StreamWriter writer = null;
         private object lobbyLock = new object();
         Game game;
-        
+        ObservableCollection<string> leaderboardData = new ObservableCollection<string>();
+
         public void setUp(string nickname)
         {
             nickLobby.Content = username;
@@ -102,13 +106,18 @@ namespace klient
                     break;
                 case "Win":
                     game.drawOnBoard(Int32.Parse(splitted[2]), splitted[1]);
+                    string data = splitted[3];
+                    var splitted_data = data.Split(':');
+                    string wynik = "Gracz " + splitted_data[0] + ": " + splitted_data[1] + "pkt";
+                                       
                     Dispatcher.Invoke(() =>
                     {
+                        leaderboardData.Add(wynik);
+                        serverLeaderBoard.ItemsSource = leaderboardData;
                         game.Close();
                         Visibility = Visibility.Visible;
                         
                     });                   
-
                     
                     break;
                 case "Draw":
@@ -119,6 +128,9 @@ namespace klient
                         Visibility = Visibility.Visible;
 
                     });
+                    break;
+                case "LeaderBoard":
+                    string msg = splitted[1];
                     break;
             }
         }

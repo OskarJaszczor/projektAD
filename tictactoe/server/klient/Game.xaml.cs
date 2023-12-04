@@ -26,13 +26,15 @@ namespace klient
         StreamReader reader = null;
         StreamWriter writer = null;
         TcpClient client = null;
+        string username;
         public Game()
         {
             InitializeComponent();
             client = Lobby.client;
             reader = new(client.GetStream());
             writer = new(client.GetStream());
-
+            username = Lobby.username;
+            nickGame.Content = username;
         }
 
         private void sendMessageBtn_Click(object sender, RoutedEventArgs e)

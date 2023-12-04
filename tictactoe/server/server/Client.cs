@@ -21,6 +21,7 @@ namespace server
         public bool readyToPlay;
         private List<String> packetQueue = new List<String>();
         public Object packetQueueLock = new Object();
+        
         public Client(TcpClient client)
         {
             this.client = client;

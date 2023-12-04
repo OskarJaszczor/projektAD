@@ -31,7 +31,7 @@ namespace klient
             Lobby lobby = new Lobby();
             Visibility = Visibility.Hidden;
             lobby.Visibility = Visibility.Visible;
-            lobby.username = nickname;
+            Lobby.username = nickname;
             lobby.setUp(nickname);
         }
     }

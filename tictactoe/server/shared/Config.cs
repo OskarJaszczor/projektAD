@@ -17,7 +17,8 @@ namespace shared
             Move,
             InvalidMove,
             Win,
-            Draw
+            Draw,
+            LeaderBoard
         }
         
     }
