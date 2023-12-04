@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:klient"
         mc:Ignorable="d"
-        Title="Lobby" Height="450" Width="800">
+        Title="Lobby" Height="450" Width="800" Background="#FFFDD0">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -16,20 +16,20 @@
             <RowDefinition ></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="1" FontSize="30" Margin="0,0,0,0" TextWrapping="Wrap" Text="Poczekalnia" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button x:Name="sendBtn" Content="Send" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="187,312,0,0" VerticalAlignment="Top" Height="30" Width="78" Click="sendMessageBtn_Click" />
-        <TextBox x:Name="MessageContentTbox" HorizontalAlignment="Left" Margin="2,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Height="30" Grid.Row="1"/>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Margin="0,69,0,0" VerticalAlignment="Top" Width="263" Height="300" Grid.RowSpan="2">
+        <TextBlock Grid.Column="1" Foreground="#5e5333" FontSize="30" Margin="0,0,0,0" TextWrapping="Wrap" Text="Poczekalnia" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="sendBtn" Background="#4dfa5c" Content="Send" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="187,312,0,0" VerticalAlignment="Top" Height="30" Width="78" Click="sendMessageBtn_Click" />
+        <TextBox Background="#b0dbff" x:Name="MessageContentTbox" HorizontalAlignment="Left" Margin="2,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" Height="30" Grid.Row="1"/>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Margin="0,69,0,0" VerticalAlignment="Top" Width="263" Height="300" Grid.RowSpan="2" Background="#a2f2f2">
             <TextBlock x:Name="receivedTbox" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="4,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="258" Height="290"/>
         </Border>
-        <ListView x:Name="serverLeaderBoard" Grid.Row="1" Grid.Column="2" Margin="0,0,0,0">
+        <ListView x:Name="serverLeaderBoard" Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Background="#64edab">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Tablica Rozgrywek" Width="250"></GridViewColumn>
+                    <GridViewColumn Header="Tablica Rozgrywek" Width="250" ></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="searchGameButton" Content="Play Game" FontSize="25" FontWeight="DemiBold"  Grid.Column="1" Width="150" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Click="searchGameButton_Click"/>
+        <Button x:Name="searchGameButton" Background="#18f22b" Content="Play Game" FontSize="25" FontWeight="DemiBold"  Grid.Column="1" Width="150" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Click="searchGameButton_Click"/>
         <Label x:Name="nickLobby" Content="" FontSize="25" FontWeight="DemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
     </Grid>

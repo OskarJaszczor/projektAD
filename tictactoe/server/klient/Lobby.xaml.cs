@@ -84,7 +84,7 @@ namespace klient
             switch (splitted[0])
             {
                 case "Chat":
-                    showDataOnChat(splitted[1]);                   
+                    showDataOnChat(splitted[2] + ": " + splitted[1]);
                     break;
                 case "Game":
                     Dispatcher.Invoke(() =>
@@ -96,10 +96,20 @@ namespace klient
                     });
                    break;
                 case "InGameChat":
-                    game.showDataOnChat(splitted[1]);
+                    game.showDataOnChat(splitted[2] + ": " + splitted[1]);
                     break;
                 case "Move":
                     game.drawOnBoard(Int32.Parse(splitted[2]), splitted[1]);
+                    string znak = "";
+                    Dispatcher.Invoke(() =>
+                    {
+                        if (splitted[1] == "X")
+                            znak = "O";
+                        else
+                            znak = "X";
+                        game.character.Content = "Teraz ruch dla: " + znak.ToString();
+
+                    });
                     break;
                 case "InvalidMove":
                     MessageBox.Show(splitted[1]);
@@ -131,6 +141,11 @@ namespace klient
                     break;
                 case "LeaderBoard":
                     string msg = splitted[1];
+                    break;
+                case "Character":
+                    string character = splitted[1];
+                    Dispatcher.Invoke( ()=> game.character1.Content = "Grasz jako: " + character);
+                    
                     break;
             }
         }

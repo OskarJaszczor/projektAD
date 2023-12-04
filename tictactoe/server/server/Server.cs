@@ -15,9 +15,11 @@ namespace server
         private TcpListener listener;
         private List<Client> clients = new List<Client>();
         public Lobby lobby = new Lobby();
+        public static List<Client> allClients = new List<Client>();
         private void acceptClient(Client client)
         {
             clients.Add(client);
+            allClients.Add(client);
             Lobby.lobby_clients.Add(client);
         }
 

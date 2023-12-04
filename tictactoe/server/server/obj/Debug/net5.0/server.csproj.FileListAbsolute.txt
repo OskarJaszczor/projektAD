@@ -21,8 +21,6 @@ D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\server.runti
 D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\server.dll
 D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\ref\server.dll
 D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\server.pdb
-D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\SharedData.dll
-D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\SharedData.pdb
 D:\oskarjaszczor\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.csproj.AssemblyReference.cache
 D:\oskarjaszczor\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.GeneratedMSBuildEditorConfig.editorconfig
 D:\oskarjaszczor\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.AssemblyInfoInputs.cache
@@ -36,3 +34,5 @@ D:\oskarjaszczor\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.genru
 E:\C#\projektAD\tictactoe\server\server\bin\Debug\net5.0\shared.dll
 E:\C#\projektAD\tictactoe\server\server\bin\Debug\net5.0\shared.pdb
 E:\C#\projektAD\tictactoe\server\server\obj\Debug\net5.0\server.csproj.CopyComplete
+D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\shared.dll
+D:\oskarjaszczor\projektAD\tictactoe\server\server\bin\Debug\net5.0\shared.pdb

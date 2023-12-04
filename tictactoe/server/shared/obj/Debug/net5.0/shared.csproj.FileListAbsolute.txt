@@ -10,3 +10,15 @@ E:\C#\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.dll
 E:\C#\projektAD\tictactoe\server\shared\obj\Debug\net5.0\refint\shared.dll
 E:\C#\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.pdb
 E:\C#\projektAD\tictactoe\server\shared\obj\Debug\net5.0\ref\shared.dll
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\bin\Debug\net5.0\shared.deps.json
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\bin\Debug\net5.0\shared.dll
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\bin\Debug\net5.0\ref\shared.dll
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\bin\Debug\net5.0\shared.pdb
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.csproj.AssemblyReference.cache
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.AssemblyInfoInputs.cache
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.AssemblyInfo.cs
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.csproj.CoreCompileInputs.cache
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.dll
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\obj\Debug\net5.0\ref\shared.dll
+D:\oskarjaszczor\projektAD\tictactoe\server\shared\obj\Debug\net5.0\shared.pdb

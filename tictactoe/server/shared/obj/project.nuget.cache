@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "utnofVeOIaPpRK4rqS7rlv8eA/ORg8HwygiSviCmNiE0RSYP/kWsgeZP3pIQvquy7yMK/wMeuab4u0PziwpoPw==",
+  "dgSpecHash": "XqRF2FBnF/zQk3zc0xJ7QbJLSO+USvwX9HPHOPEpE8UqlhX+l9vkdZtKK8w2pUL4arV0sVePxDpyoQb6mH03+Q==",
   "success": true,
-  "projectFilePath": "E:\\C#\\projektAD\\tictactoe\\server\\shared\\shared.csproj",
+  "projectFilePath": "D:\\oskarjaszczor\\projektAD\\tictactoe\\server\\shared\\shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

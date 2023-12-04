@@ -44,7 +44,7 @@ namespace server
                                     switch (splitted[0])
                                     {
                                         case "Chat":
-                                            sendMessageToAll(Config.GameMessageType.Chat, splitted[1]);
+                                            sendMessageToAll(Config.GameMessageType.Chat, $"{splitted[1]}\0{lobby_clients[i].client_nickname}");
                                             break;
                                         case "Play":
                                             lobby_clients[i].readyToPlay = true; // jak usuwa kleintow z lobby_clients to petle wywala po sie zmienjsz ilosc indexow

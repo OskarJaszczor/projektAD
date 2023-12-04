@@ -32,21 +32,6 @@ namespace server
             gameEnded = false;
             startListeningThread();
 
-            //leaderboard.CollectionChanged += (sender, e) =>
-            //{
-            //    //if (e.Action != NotifyCollectionChangedAction.Add) return;
-            //    //    var newMessages = e.NewItems;
-
-            //    Thread t = new(() =>
-            //    {
-            //        foreach (var e in leaderboard)
-            //        {
-            //            Console.WriteLine(e.nickname + ": " + e.winGames);
-                        
-            //        }
-            //    });
-            //    t.Start();
-            //};
 
         }
 
@@ -60,6 +45,8 @@ namespace server
             }
             game_clients[0].character = "O";
             game_clients[1].character = "X";
+            game_clients[0].sendMessage(Config.GameMessageType.Character + "\0" + "O");
+            game_clients[1].sendMessage(Config.GameMessageType.Character + "\0" + "X");
             currentPlayerIndex = 0;
         }
         private void startListeningThread()
@@ -86,7 +73,7 @@ namespace server
                                     {
                                         case "InGameChat":
                                             //Console.WriteLine(message);
-                                            sendMessageToAll(Config.GameMessageType.InGameChat, splitted[1]);
+                                            sendMessageToAll(Config.GameMessageType.InGameChat, $"{splitted[1]}\0{client.client_nickname}");
                                             break;
                                         case "Move":
                                             int moveIndex = Int32.Parse(splitted[1]);
@@ -112,6 +99,7 @@ namespace server
                                                             data += e.Nickname + ":" + e.WinGames + ";";
                                                         }
                                                         sendMessageToAll(Config.GameMessageType.Win, $"{client.character}\0{moveIndex}\0{data}");
+                                                       
                                                         Thread.Sleep(100);
                                                         endGame();
                                                         break;
@@ -167,7 +155,6 @@ namespace server
                 client.sendMessage(message);
             }
         }
-
         private void endGame()
         {
             lock (lobbyLock)
